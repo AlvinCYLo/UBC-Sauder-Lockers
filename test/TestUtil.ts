@@ -4,7 +4,7 @@ import * as fspath from "path";
 import * as recursive from "recursive-readdir";
 
 import Log from "../src/Util";
-import { ITestQuery } from "./InsightFacade.spec";
+import { ITestQuery } from "./LockerAssignmentSpec";
 
 export default class TestUtil {
 
