@@ -1,6 +1,6 @@
 const Excel = require("exceljs");
 
-export class ExcelUtils {
+export default class ExcelUtils {   
 
     public static extractExcelInfo(filename: string): Map<string, any[]> {
         let lockersOnFloor = new Map<string, any[]>();

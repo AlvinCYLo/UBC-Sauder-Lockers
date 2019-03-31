@@ -1,45 +1,36 @@
-import { expect } from "chai";
+import {expect} from "chai";
 
-import Main from "../src/controller/Main";
+import ExcelUtils from "../src/controller/ExcelUtils";
 import Log from "../src/Util";
 import TestUtil from "./TestUtil";
 
-const assert = require("assert");
+const Excel = require("exceljs");
 
-describe("InsightFacade Add/Remove Dataset", function () {
+describe("Locker Assignments Read Excels", function () {
     // Reference any datasets you've added to test/data here and they will
     // automatically be loaded in the Before All hook.
-    const datasetsToLoad: { [id: string]: string } = {
-        courses: "./test/data/courses.zip",
-        somevalid: "./test/data/somevalid.zip",
-        blank: "./test/data/blank.zip",
-        courses2: "./test/data/courses2.zip",
-        notzip: "./test/data/courses.txt",
-        nocourses: "./test/data/no-courses.zip",
-        nothingincourse: "./test/data/nothingincourses.zip",
-        onlyinvalid: "./test/data/onlyinvalid.zip",
-        invalidjson: "./test/data/invalidjson.zip",
-        three: "./test/data/3.zip",
-        courses1: "./test/data/courses1.zip",
-        // nullkeys: "./test/data/nullkeys.zip",
-        missingkeys: "./test/data/missingkeys.zip",
-        nullmissingvals: "./test/data/nullmissingvals.zip",
-        rooms: "./test/data/rooms.zip"
+    const excels: { [id: string]: string } = {
+        xlsx: "./test/data/Locker.xlsx",
+        csv: "./test/data/Locker.csv",
+        xls: "./test/data/Locker.xls"
     };
 
-    let insightFacade: InsightFacade;
+    let excelUtils: ExcelUtils;
     let datasets: { [id: string]: string };
 
     before(async function () {
         Log.test(`Before: ${this.test.parent.title}`);
 
         try {
-            const loadDatasetPromises: Array<Promise<Buffer>> = [];
-            for (const [id, path] of Object.entries(datasetsToLoad)) {
-                loadDatasetPromises.push(TestUtil.readFileAsync(path));
+            const loadExcelPromises: Array<Promise<Buffer>> = [];
+            var workbook = new Excel.workbook();
+
+            for (const [id, path] of Object.entries(excels)) {
+                loadExcelPromises.push(TestUtil.readFileAsync(path));
             }
-            const loadedDatasets = (await Promise.all(loadDatasetPromises)).map((buf, i) => {
-                return { [Object.keys(datasetsToLoad)[i]]: buf.toString("base64") };
+
+            const loadedDatasets = (await Promise.all(loadExcelPromises)).map((buf, i) => {
+                return {[Object.keys(excels)[i]]: buf.toString("base64")};
             });
             datasets = Object.assign({}, ...loadedDatasets);
             expect(Object.keys(datasets)).to.have.length.greaterThan(0);
@@ -48,11 +39,11 @@ describe("InsightFacade Add/Remove Dataset", function () {
         }
 
         try {
-            insightFacade = new InsightFacade();
+            excelUtils = new ExcelUtils();
         } catch (err) {
             Log.error(err);
         } finally {
-            expect(insightFacade).to.be.instanceOf(InsightFacade);
+            expect(excelUtils).to.be.instanceOf(ExcelUtils);
         }
     });
 
@@ -68,44 +59,38 @@ describe("InsightFacade Add/Remove Dataset", function () {
         Log.test(`AfterTest: ${this.currentTest.title}`);
     });
 
-    it("Should print empty array of datasets", async () => {
-        let response: InsightDataset[];
-
+    it("Read XLSX", async () => {
+        let response: Map<string, any[]>
         try {
-            response = await insightFacade.listDatasets();
+            response = await ExcelUtils.extractExcelInfo("Locker.xlsx");
         } catch (err) {
             response = err;
         } finally {
-            expect(response).to.deep.equal([]);
+            expect(response.size).to.have.length.greaterThan(0);
         }
     });
 
-    it("Should add a valid dataset", async () => {
-        const id: string = "courses";
-        let response: string[];
-
+    it("Read CSV", async () => {
+        let response: Map<string, any[]>
         try {
-            response = await insightFacade.addDataset(id, datasets[id], InsightDatasetKind.Courses);
+            response = await ExcelUtils.extractExcelInfo("Locker.csv");
         } catch (err) {
             response = err;
         } finally {
-            expect(response).to.deep.equal([id]);
+            expect(response.size).to.have.length.greaterThan(0);
         }
     });
 
-    it("Should print an array with 1 dataset", async () => {
-        let response: InsightDataset[];
-
+    it("Can't Read XLS", async () => {
+        let response: Map<string, any[]>
         try {
-            response = await insightFacade.listDatasets();
+            response = await ExcelUtils.extractExcelInfo("Locker.xls");
         } catch (err) {
             response = err;
         } finally {
-            expect(response).to.deep.equal([{
-                id: "courses",
-                kind: InsightDatasetKind.Courses,
-                numRows: 64612,
-            }]);
+            expect(response).to.be.an('error');
         }
     });
+
+
 });
