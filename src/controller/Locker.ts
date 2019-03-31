@@ -34,4 +34,8 @@ export class Locker {
         this.student = student;
     }
 
+    public getLockerFloor(): string {
+        return this.floor;
+    }
+
 }

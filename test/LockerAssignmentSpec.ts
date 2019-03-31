@@ -10,9 +10,9 @@ describe("Locker Assignments Read Excels", function () {
     // Reference any datasets you've added to test/data here and they will
     // automatically be loaded in the Before All hook.
     const excels: { [id: string]: string } = {
-        xlsx: "./test/data/Locker.xlsx",
-        csv: "./test/data/Locker.csv",
-        xls: "./test/data/Locker.xls"
+        xlsx: "./test/data/Lockers.xlsx",
+        csv: "./test/data/Lockers.csv",
+        xls: "./test/data/Lockers.xls"
     };
 
     let excelUtils: ExcelUtils;
@@ -23,7 +23,6 @@ describe("Locker Assignments Read Excels", function () {
 
         try {
             const loadExcelPromises: Array<Promise<Buffer>> = [];
-            var workbook = new Excel.workbook();
 
             for (const [id, path] of Object.entries(excels)) {
                 loadExcelPromises.push(TestUtil.readFileAsync(path));
@@ -60,35 +59,35 @@ describe("Locker Assignments Read Excels", function () {
     });
 
     it("Read XLSX", async () => {
-        let response: Map<string, any[]>
+        let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractExcelInfo("Locker.xlsx");
+            response = await ExcelUtils.extractExcelLockerInfo("./test/data/Lockers.xlsx");
         } catch (err) {
             response = err;
         } finally {
-            expect(response.size).to.have.length.greaterThan(0);
+            expect(response).to.be.equal(new Map<string, any[]>());
         }
     });
 
     it("Read CSV", async () => {
-        let response: Map<string, any[]>
+        let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractExcelInfo("Locker.csv");
+            response = await ExcelUtils.extractExcelLockerInfo("./test/data/Lockers.csv");
         } catch (err) {
             response = err;
         } finally {
-            expect(response.size).to.have.length.greaterThan(0);
+            expect(response.size).to.be.equal(new Map<string, any[]>());
         }
     });
 
     it("Can't Read XLS", async () => {
-        let response: Map<string, any[]>
+        let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractExcelInfo("Locker.xls");
+            response = await ExcelUtils.extractExcelLockerInfo("./test/data/Lockers.xls");
         } catch (err) {
             response = err;
         } finally {
-            expect(response).to.be.an('error');
+            expect(response.size).to.be.equal(new Map<string, any[]>());
         }
     });
 
