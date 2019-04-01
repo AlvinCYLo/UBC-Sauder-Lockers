@@ -9,7 +9,7 @@ export class Locker {
 
     constructor(num: number) {
         this.id = num;
-        this.student = new Client("CUS", "IT", 6048273772, "cus.ca", 0, "Fourth");
+        this.student = new Client("CUS", "IT", 6048273772, "cus.ca", 0, "Fourth", new Date("January 1, 2019 00:00:00"), "Top");
         this.topLocker = num % 2 !== 0;
         let f = num.toString();
 
@@ -30,7 +30,7 @@ export class Locker {
         return this.id;
     }
 
-    public setClientToLocker(student: Client): void {
+    public setClientOfLocker(student: Client): void {
         this.student = student;
     }
 

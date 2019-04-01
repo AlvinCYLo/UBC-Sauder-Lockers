@@ -4,7 +4,7 @@ const Client_1 = require("./Client");
 class Locker {
     constructor(num) {
         this.id = num;
-        this.student = new Client_1.Client("CUS", "IT", 6048273772, "cus.ca", 0, "Fourth");
+        this.student = new Client_1.Client("CUS", "IT", 6048273772, "cus.ca", 0, "Fourth", new Date("January 1, 2019 00:00:00"), "Top");
         this.topLocker = num % 2 !== 0;
         let f = num.toString();
         if (f.length === 4) {
@@ -25,7 +25,7 @@ class Locker {
     getLockerNumber() {
         return this.id;
     }
-    setClientToLocker(student) {
+    setClientOfLocker(student) {
         this.student = student;
     }
     getLockerFloor() {

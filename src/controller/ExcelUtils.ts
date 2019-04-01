@@ -1,4 +1,5 @@
 import {Locker} from "./Locker";
+import {Client} from "./Client";
 
 const Excel = require("exceljs");
 
@@ -16,41 +17,124 @@ export default class ExcelUtils {
             if (fileType && fileType === "xlsx") {
                 workbook.xlsx.readFile(filename)
                     .then(function (file: any) {
-                        //TODO: Fix
-                        that.cellParser(file, lockersOnFloor);
+                        that.cellParserForLockers(file, lockersOnFloor);
                         resolve(lockersOnFloor);
-
-                    }).catch(function () {
-                    reject(new Error());
+                    }).catch(function (e: Error) {
+                    reject("XLSX Error: " + e.message);
                 })
             } else if (fileType && fileType === "csv") {
                 workbook.csv.readFile(filename)
                     .then(function (file: any) {
-                        that.cellParser(file, lockersOnFloor);
-                        resolve(lockersOnFloor)
-                    }).catch(function () {
-                    reject(new Error());
+                        that.cellParserForLockers(file, lockersOnFloor);
+                        resolve(lockersOnFloor);
+                    }).catch(function (e: Error) {
+                    reject("CSV Error: " + e.message);
                 })
             }
         });
     }
 
-    private cellParser(file: any, lockersOnFloor: Map<string, any[]>): void {
-        file.eachSheet(function (worksheet: any) {
-            worksheet.rows.foreach(function (cell: any) {
-                let locker = new Locker(cell.value.model.value);
+
+    public static extractClientInfo(filename: string): Promise<Map<string, any[]>> {
+        let that = this;
+        return new Promise(function (resolve, reject) {
+            let clientsByFloor = new Map<string, any[]>();
+            let workbook = new Excel.Workbook();
+            let fileType = filename.slice(-4);
+            if (fileType.charAt(0) === ".") {
+                fileType = fileType.substr(1);
+            }
+            if (fileType && fileType === "xlsx") {
+                workbook.xlsx.readFile(filename)
+                    .then(function (file: any) {
+                        that.cellParserForClients(file, clientsByFloor);
+                    }).catch(function (e: Error) {
+                    reject("XLSX Error: " + e.message);
+                })
+            } else if (fileType && fileType === "csv") {
+                workbook.csv.readFile(filename)
+                    .then(function (file: any) {
+                        that.cellParserForClients(file, clientsByFloor);
+                        resolve(clientsByFloor);
+                    }).catch(function (e: Error) {
+                    reject("CSV Error: " + e.message);
+                })
+            }
+        });
+    }
+
+    private static getColumnIndex(allColumnNames: any[]): any {
+        let columnIndexes: any = {};
+
+        // indexes for possibly changing excel columns
+        for (let i = 0; i < allColumnNames.length; i++) {
+            switch (allColumnNames[i]._value.model.value) {
+                case "First Name":
+                    columnIndexes.firstName = i;
+                    break;
+                case "Last Name":
+                    columnIndexes.lastName = i;
+                    break;
+                case "Phone Number":
+                    columnIndexes.phoneNumber = i;
+                    break;
+                case "Email Address":
+                    columnIndexes.emailAddress = i;
+                    break;
+                case "Student Number":
+                    columnIndexes.studentNumber = i;
+                    break;
+                case "Floor Preference":
+                    columnIndexes.floorPreference = i;
+                    break;
+                case "Date Purchased":
+                    columnIndexes.dateOfPurchase = i;
+                    break;
+                case "Locker Placement":
+                    columnIndexes.lockerPlacement = i;
+                    break;
+            }
+        }
+        return columnIndexes;
+    }
+
+    private static cellParserForClients(file: any, clientsByFloor: Map<string, any[]>): void {
+        let that = this;
+        let allColumnNames = file._worksheets[1]._rows[0]._cells;
+        let columnIndex: any = that.getColumnIndex(allColumnNames);
+        let orders = file._worksheets[1]._rows;
+        //TODO: Fix i undefined
+        for (let i = 1; i < orders.legnth; i++) {
+            let client = new Client(orders[i]._cells[columnIndex.firstName], orders[i]._cells[columnIndex.lastName],
+                parseInt(orders[i]._cells[columnIndex.phoneNumber]), orders[i]._cells[columnIndex.emailAddress],
+                parseInt(orders[i]._cells[columnIndex.studentNumber]), orders[i]._cells[columnIndex.floorPreference],
+                new Date(orders[i]._cells[columnIndex.dateOfPurchase]), orders[i]._cells[columnIndex.lockerPlacement]);
+            let floorPref = client.getFloorPreference();
+            if (clientsByFloor.has(floorPref)) {
+                let oldVal = clientsByFloor.get(floorPref);
+                oldVal.push(client);
+                clientsByFloor.set(floorPref, oldVal);
+            } else {
+                clientsByFloor.set(floorPref, [client]);
+            }
+        }
+    }
+
+    private static cellParserForLockers(file: any, lockersOnFloor: Map<string, any[]>): void {
+        file.worksheets.forEach(function (worksheet: any) {
+            worksheet._rows.forEach(function (cell: any) {
+                let locker = new Locker(cell._cells[0]._value.model.value);
                 let floor = locker.getLockerFloor();
                 if (lockersOnFloor.has(floor)) {
                     let oldVal = lockersOnFloor.get(floor);
                     oldVal.push(locker);
                     lockersOnFloor.set(floor, oldVal);
                 } else {
-                    let vals = [locker];
-                    lockersOnFloor.set(locker.getLockerFloor(), vals);
+                    lockersOnFloor.set(locker.getLockerFloor(), [locker]);
                 }
             });
         });
     }
-
-
 }
+
+

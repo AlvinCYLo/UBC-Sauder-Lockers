@@ -58,7 +58,7 @@ describe("Locker Assignments Read Excels", function () {
     afterEach(function () {
         Util_1.default.test(`AfterTest: ${this.currentTest.title}`);
     });
-    it("Read XLSX", () => __awaiter(this, void 0, void 0, function* () {
+    it("Lockers: Read XLSX", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
             response = yield ExcelUtils_1.default.extractExcelLockerInfo("./test/data/Lockers.xlsx");
@@ -70,7 +70,7 @@ describe("Locker Assignments Read Excels", function () {
             chai_1.expect(response).to.be.equal(new Map());
         }
     }));
-    it("Read CSV", () => __awaiter(this, void 0, void 0, function* () {
+    it("Lockers: Read CSV", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
             response = yield ExcelUtils_1.default.extractExcelLockerInfo("./test/data/Lockers.csv");
@@ -82,16 +82,16 @@ describe("Locker Assignments Read Excels", function () {
             chai_1.expect(response.size).to.be.equal(new Map());
         }
     }));
-    it("Can't Read XLS", () => __awaiter(this, void 0, void 0, function* () {
+    it("Clients: Read XLSX", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            response = yield ExcelUtils_1.default.extractExcelLockerInfo("./test/data/Lockers.xls");
+            response = yield ExcelUtils_1.default.extractClientInfo("./test/data/Clients.xlsx");
         }
         catch (err) {
             response = err;
         }
         finally {
-            chai_1.expect(response.size).to.be.equal(new Map());
+            chai_1.expect(response).to.be.equal(new Map());
         }
     }));
 });
