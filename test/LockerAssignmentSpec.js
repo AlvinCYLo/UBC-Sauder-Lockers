@@ -12,6 +12,7 @@ const chai_1 = require("chai");
 const ExcelUtils_1 = require("../src/controller/ExcelUtils");
 const Util_1 = require("../src/Util");
 const TestUtil_1 = require("./TestUtil");
+const LockerSystem_1 = require("../src/controller/LockerSystem");
 const Excel = require("exceljs");
 describe("Locker Assignments Read Excels", function () {
     const excels = {
@@ -20,6 +21,7 @@ describe("Locker Assignments Read Excels", function () {
         xls: "./test/data/Lockers.xls"
     };
     let excelUtils;
+    let ls;
     let datasets;
     before(function () {
         return __awaiter(this, void 0, void 0, function* () {
@@ -40,6 +42,7 @@ describe("Locker Assignments Read Excels", function () {
             }
             try {
                 excelUtils = new ExcelUtils_1.default();
+                ls = new LockerSystem_1.default();
             }
             catch (err) {
                 Util_1.default.error(err);
@@ -61,7 +64,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read XLSX", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            response = yield ExcelUtils_1.default.extractExcelLockerInfo("./test/data/Lockers.xlsx");
+            response = yield ExcelUtils_1.default.extractLockerInfo("./test/data/Lockers.xlsx");
         }
         catch (err) {
             response = err;
@@ -73,7 +76,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read CSV", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            response = yield ExcelUtils_1.default.extractExcelLockerInfo("./test/data/Lockers.csv");
+            response = yield ExcelUtils_1.default.extractLockerInfo("./test/data/Lockers.csv");
         }
         catch (err) {
             response = err;
@@ -86,6 +89,30 @@ describe("Locker Assignments Read Excels", function () {
         let response;
         try {
             response = yield ExcelUtils_1.default.extractClientInfo("./test/data/Clients.xlsx");
+        }
+        catch (err) {
+            response = err;
+        }
+        finally {
+            chai_1.expect(response).to.be.equal(new Map());
+        }
+    }));
+    it("Locker System Clients", () => __awaiter(this, void 0, void 0, function* () {
+        let response;
+        try {
+            response = yield ls.getAllClients("./test/data/Clients.xlsx");
+        }
+        catch (err) {
+            response = err;
+        }
+        finally {
+            chai_1.expect(response).to.be.equal(new Map());
+        }
+    }));
+    it("Locker System Lockers", () => __awaiter(this, void 0, void 0, function* () {
+        let response;
+        try {
+            response = yield ls.getAvailableLockers("./test/data/Lockers.xlsx");
         }
         catch (err) {
             response = err;

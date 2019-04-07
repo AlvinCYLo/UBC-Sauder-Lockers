@@ -1,5 +1,5 @@
-import { Client } from "./Client";
-import { Locker } from "./Locker";
+import {Client} from "./Client";
+import {Locker} from "./Locker";
 import Log from "../Util";
 import ExcelUtils from "./ExcelUtils";
 
@@ -20,10 +20,14 @@ export default class LockerSystem {
     }
 
     public getAvailableLockers(filepath: string): Promise<Map<string, Locker[]>> {
+        let that = this;
         return new Promise(function (resolve, reject) {
-            if (filepath && fs.existSync(filepath)) {
-                this.availableLockers = excel.extractLockerInfo(filepath);
-                resolve(excel.extractLockerInfo(filepath));
+            if (filepath && fs.existsSync(filepath)) {
+                let lockersByFloor = excel.extractLockerInfo(filepath);
+                lockersByFloor.then(function (allLockers) {
+                    that.availableLockers = allLockers;
+                });
+                resolve(lockersByFloor);
             } else {
                 Log.trace("File or Path does not exist");
                 reject(new Error("Get Available Lockers Failed: File or Path does not exist"));
@@ -32,17 +36,21 @@ export default class LockerSystem {
     }
 
     public getAllClients(filepath: string): Promise<Map<string, Client[]>> {
+        let that = this;
         return new Promise(function (resolve, reject) {
-            if (filepath && fs.existSync(filepath)) {
-                this.clients = excel.extractClientInfo(filepath);
-                resolve(excel.extractClientInfo(filepath));
+            if (filepath && fs.existsSync(filepath)) {
+                let allClients = excel.extractClientInfo(filepath);
+                allClients.then(function (clients) {
+                    that.clients = clients;
+                });
+                resolve(allClients);
             } else {
                 Log.trace("File or Path does not exist");
                 reject(new Error("Get All Clients Failed: File or Path does not exist"));
             }
         });
     }
-    
+
 
     public makeAssignments(): void {
 
@@ -51,7 +59,6 @@ export default class LockerSystem {
     public publishAssignment(): void {
 
     }
-
 
 
 }

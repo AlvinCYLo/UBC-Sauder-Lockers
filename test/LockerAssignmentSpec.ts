@@ -3,6 +3,7 @@ import {expect} from "chai";
 import ExcelUtils from "../src/controller/ExcelUtils";
 import Log from "../src/Util";
 import TestUtil from "./TestUtil";
+import LockerSystem from "../src/controller/LockerSystem";
 
 const Excel = require("exceljs");
 
@@ -16,6 +17,7 @@ describe("Locker Assignments Read Excels", function () {
     };
 
     let excelUtils: ExcelUtils;
+    let ls: LockerSystem;
     let datasets: { [id: string]: string };
 
     before(async function () {
@@ -39,6 +41,7 @@ describe("Locker Assignments Read Excels", function () {
 
         try {
             excelUtils = new ExcelUtils();
+            ls = new LockerSystem();
         } catch (err) {
             Log.error(err);
         } finally {
@@ -61,7 +64,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read XLSX", async () => {
         let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractExcelLockerInfo("./test/data/Lockers.xlsx");
+            response = await ExcelUtils.extractLockerInfo("./test/data/Lockers.xlsx");
         } catch (err) {
             response = err;
         } finally {
@@ -72,7 +75,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read CSV", async () => {
         let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractExcelLockerInfo("./test/data/Lockers.csv");
+            response = await ExcelUtils.extractLockerInfo("./test/data/Lockers.csv");
         } catch (err) {
             response = err;
         } finally {
@@ -91,5 +94,27 @@ describe("Locker Assignments Read Excels", function () {
         }
     });
 
+
+    it("Locker System Clients", async () => {
+        let response: any;
+        try {
+            response = await ls.getAllClients("./test/data/Clients.xlsx");
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.be.equal(new Map<string, any[]>());
+        }
+    });
+
+    it("Locker System Lockers", async () => {
+        let response: any;
+        try {
+            response = await ls.getAvailableLockers("./test/data/Lockers.xlsx");
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.be.equal(new Map<string, any[]>());
+        }
+    });
 
 });

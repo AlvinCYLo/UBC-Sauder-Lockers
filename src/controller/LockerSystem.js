@@ -13,10 +13,14 @@ class LockerSystem {
         Util_1.default.trace("Locker System Init");
     }
     getAvailableLockers(filepath) {
+        let that = this;
         return new Promise(function (resolve, reject) {
-            if (filepath && fs.existSync(filepath)) {
-                this.availableLockers = excel.extractLockerInfo(filepath);
-                resolve(excel.extractLockerInfo(filepath));
+            if (filepath && fs.existsSync(filepath)) {
+                let lockersByFloor = excel.extractLockerInfo(filepath);
+                lockersByFloor.then(function (allLockers) {
+                    that.availableLockers = allLockers;
+                });
+                resolve(lockersByFloor);
             }
             else {
                 Util_1.default.trace("File or Path does not exist");
@@ -25,10 +29,14 @@ class LockerSystem {
         });
     }
     getAllClients(filepath) {
+        let that = this;
         return new Promise(function (resolve, reject) {
-            if (filepath && fs.existSync(filepath)) {
-                this.clients = excel.extractClientInfo(filepath);
-                resolve(excel.extractClientInfo(filepath));
+            if (filepath && fs.existsSync(filepath)) {
+                let allClients = excel.extractClientInfo(filepath);
+                allClients.then(function (clients) {
+                    that.clients = clients;
+                });
+                resolve(allClients);
             }
             else {
                 Util_1.default.trace("File or Path does not exist");
