@@ -103,21 +103,22 @@ export default class ExcelUtils {
         let allColumnNames = file._worksheets[1]._rows[0]._cells;
         let columnIndex: any = that.getColumnIndex(allColumnNames);
         let orders = file._worksheets[1]._rows;
-        //TODO: Fix i undefined
-        for (let i = 1; i < orders.legnth; i++) {
-            let client = new Client(orders[i]._cells[columnIndex.firstName], orders[i]._cells[columnIndex.lastName],
-                parseInt(orders[i]._cells[columnIndex.phoneNumber]), orders[i]._cells[columnIndex.emailAddress],
-                parseInt(orders[i]._cells[columnIndex.studentNumber]), orders[i]._cells[columnIndex.floorPreference],
-                new Date(orders[i]._cells[columnIndex.dateOfPurchase]), orders[i]._cells[columnIndex.lockerPlacement]);
-            let floorPref = client.getFloorPreference();
-            if (clientsByFloor.has(floorPref)) {
-                let oldVal = clientsByFloor.get(floorPref);
-                oldVal.push(client);
-                clientsByFloor.set(floorPref, oldVal);
-            } else {
-                clientsByFloor.set(floorPref, [client]);
+        orders.forEach(function (order: any, i: number) {
+            if (i !== 0) {
+                let client = new Client(orders[i]._cells[columnIndex.firstName], orders[i]._cells[columnIndex.lastName],
+                    parseInt(orders[i]._cells[columnIndex.phoneNumber]), orders[i]._cells[columnIndex.emailAddress],
+                    parseInt(orders[i]._cells[columnIndex.studentNumber]), orders[i]._cells[columnIndex.floorPreference],
+                    new Date(orders[i]._cells[columnIndex.dateOfPurchase]), orders[i]._cells[columnIndex.lockerPlacement]);
+                let floorPref = client.getFloorPreference();
+                if (clientsByFloor.has(floorPref)) {
+                    let oldVal = clientsByFloor.get(floorPref);
+                    oldVal.push(client);
+                    clientsByFloor.set(floorPref, oldVal);
+                } else {
+                    clientsByFloor.set(floorPref, [client]);
+                }
             }
-        }
+        });
     }
 
     private static cellParserForLockers(file: any, lockersOnFloor: Map<string, any[]>): void {
