@@ -41,4 +41,8 @@ export class Client {
         return this.floorPreference;
     }
 
+    public getDateOfPurchase(): Date {
+        return this.dateOfPurchase;
+    }
+
 }

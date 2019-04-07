@@ -38,4 +38,8 @@ export class Locker {
         return this.floor;
     }
 
+    public top(): boolean {
+        return this.topLocker;
+    }
+
 }

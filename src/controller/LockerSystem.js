@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Util_1 = require("../Util");
 const ExcelUtils_1 = require("./ExcelUtils");
 const fs = require("fs");
-const http = require("http");
 const excel = ExcelUtils_1.default;
 class LockerSystem {
     constructor() {
@@ -45,6 +44,24 @@ class LockerSystem {
         });
     }
     makeAssignments() {
+        let that = this;
+        Object.keys(that.clients).forEach(function (floor) {
+            let clientsByFloor = that.clients.get(floor);
+            let lockersByFloor = that.availableLockers.get(floor);
+            clientsByFloor.sort(function (client1, client2) {
+                if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
+                    return -1;
+                }
+                else if (client1.getDateOfPurchase() > client2.getDateOfPurchase()) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            });
+            clientsByFloor.forEach(function (client) {
+            });
+        });
     }
     publishAssignment() {
     }

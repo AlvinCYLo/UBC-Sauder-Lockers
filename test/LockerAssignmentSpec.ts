@@ -117,4 +117,15 @@ describe("Locker Assignments Read Excels", function () {
         }
     });
 
+    it("Locker System Assignment", async () => {
+        let response: any;
+        try {
+            response = await ls.makeAssignments();
+        } catch (err) {
+            response = err;
+        } finally {
+            expect(response).to.be.equal(new Map<string, any[]>());
+        }
+    });
+
 });

@@ -121,5 +121,17 @@ describe("Locker Assignments Read Excels", function () {
             chai_1.expect(response).to.be.equal(new Map());
         }
     }));
+    it("Locker System Assignment", () => __awaiter(this, void 0, void 0, function* () {
+        let response;
+        try {
+            response = yield ls.makeAssignments();
+        }
+        catch (err) {
+            response = err;
+        }
+        finally {
+            chai_1.expect(response).to.be.equal(new Map());
+        }
+    }));
 });
 //# sourceMappingURL=LockerAssignmentSpec.js.map

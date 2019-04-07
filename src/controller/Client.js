@@ -27,6 +27,9 @@ class Client {
     getFloorPreference() {
         return this.floorPreference;
     }
+    getDateOfPurchase() {
+        return this.dateOfPurchase;
+    }
 }
 exports.Client = Client;
 //# sourceMappingURL=Client.js.map

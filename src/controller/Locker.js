@@ -31,6 +31,9 @@ class Locker {
     getLockerFloor() {
         return this.floor;
     }
+    top() {
+        return this.topLocker;
+    }
 }
 exports.Locker = Locker;
 //# sourceMappingURL=Locker.js.map

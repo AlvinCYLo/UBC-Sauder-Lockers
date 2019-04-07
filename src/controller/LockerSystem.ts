@@ -4,7 +4,6 @@ import Log from "../Util";
 import ExcelUtils from "./ExcelUtils";
 
 const fs = require("fs");
-const http = require("http");
 const excel = ExcelUtils;
 
 export default class LockerSystem {
@@ -53,7 +52,25 @@ export default class LockerSystem {
 
 
     public makeAssignments(): void {
+        let that = this;
+        Object.keys(that.clients).forEach(function (floor) {
+            let clientsByFloor = that.clients.get(floor);
+            let lockersByFloor = that.availableLockers.get(floor);
+            clientsByFloor.sort(function (client1, client2) {
+                if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
+                    return -1
+                } else if (client1.getDateOfPurchase() > client2.getDateOfPurchase()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
 
+            clientsByFloor.forEach(function (client) {
+                
+            });
+
+        });
     }
 
     public publishAssignment(): void {
