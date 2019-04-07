@@ -28,7 +28,6 @@ export default class LockerSystem {
                 Log.trace("File or Path does not exist");
                 reject(new Error("Get Available Lockers Failed: File or Path does not exist"));
             }
-
         });
     }
 
@@ -39,17 +38,20 @@ export default class LockerSystem {
                 resolve(excel.extractClientInfo(filepath));
             } else {
                 Log.trace("File or Path does not exist");
-                reject(new Error("Get Available Lockers Failed: File or Path does not exist"));
+                reject(new Error("Get All Clients Failed: File or Path does not exist"));
             }
         });
+    }
+    
+
+    public makeAssignments(): void {
+
     }
 
     public publishAssignment(): void {
 
     }
 
-    public makeAssignments(): void {
 
-    }
 
 }

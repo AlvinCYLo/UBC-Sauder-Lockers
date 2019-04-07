@@ -4,16 +4,12 @@ const Locker_1 = require("./Locker");
 const Client_1 = require("./Client");
 const Excel = require("exceljs");
 class ExcelUtils {
-    static extractExcelLockerInfo(filename) {
+    static extractLockerInfo(filename) {
         let that = this;
         return new Promise(function (resolve, reject) {
             let lockersOnFloor = new Map();
             let workbook = new Excel.Workbook();
-            let fileType = filename.slice(-4);
-            if (fileType.charAt(0) === ".") {
-                fileType = fileType.substr(1);
-            }
-            if (fileType && fileType === "xlsx") {
+            if (filename && filename.endsWith(".xlsx")) {
                 workbook.xlsx.readFile(filename)
                     .then(function (file) {
                     that.cellParserForLockers(file, lockersOnFloor);
@@ -22,7 +18,7 @@ class ExcelUtils {
                     reject("XLSX Error: " + e.message);
                 });
             }
-            else if (fileType && fileType === "csv") {
+            else if (filename && filename.endsWith(".csv")) {
                 workbook.csv.readFile(filename)
                     .then(function (file) {
                     that.cellParserForLockers(file, lockersOnFloor);
@@ -38,19 +34,16 @@ class ExcelUtils {
         return new Promise(function (resolve, reject) {
             let clientsByFloor = new Map();
             let workbook = new Excel.Workbook();
-            let fileType = filename.slice(-4);
-            if (fileType.charAt(0) === ".") {
-                fileType = fileType.substr(1);
-            }
-            if (fileType && fileType === "xlsx") {
+            if (filename && filename.endsWith(".xlsx")) {
                 workbook.xlsx.readFile(filename)
                     .then(function (file) {
                     that.cellParserForClients(file, clientsByFloor);
+                    resolve(clientsByFloor);
                 }).catch(function (e) {
                     reject("XLSX Error: " + e.message);
                 });
             }
-            else if (fileType && fileType === "csv") {
+            else if (filename && filename.endsWith(".csv")) {
                 workbook.csv.readFile(filename)
                     .then(function (file) {
                     that.cellParserForClients(file, clientsByFloor);
