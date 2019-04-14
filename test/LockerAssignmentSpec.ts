@@ -120,6 +120,8 @@ describe("Locker Assignments Read Excels", function () {
     it("Locker System Assignment", async () => {
         let response: any;
         try {
+            let lockers = await ls.getAvailableLockers("./test/data/Lockers.xlsx");
+            let clients = await ls.getAllClients("./test/data/Clients.xlsx");
             response = await ls.makeAssignments();
         } catch (err) {
             response = err;

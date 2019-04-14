@@ -1,4 +1,12 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const Util_1 = require("../Util");
 const ExcelUtils_1 = require("./ExcelUtils");
@@ -12,34 +20,18 @@ class LockerSystem {
         Util_1.default.trace("Locker System Init");
     }
     getAvailableLockers(filepath) {
-        let that = this;
-        return new Promise(function (resolve, reject) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let that = this;
             if (filepath && fs.existsSync(filepath)) {
-                let lockersByFloor = excel.extractLockerInfo(filepath);
-                lockersByFloor.then(function (allLockers) {
-                    that.availableLockers = allLockers;
-                });
-                resolve(lockersByFloor);
-            }
-            else {
-                Util_1.default.trace("File or Path does not exist");
-                reject(new Error("Get Available Lockers Failed: File or Path does not exist"));
+                that.availableLockers = yield excel.extractLockerInfo(filepath);
             }
         });
     }
     getAllClients(filepath) {
-        let that = this;
-        return new Promise(function (resolve, reject) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let that = this;
             if (filepath && fs.existsSync(filepath)) {
-                let allClients = excel.extractClientInfo(filepath);
-                allClients.then(function (clients) {
-                    that.clients = clients;
-                });
-                resolve(allClients);
-            }
-            else {
-                Util_1.default.trace("File or Path does not exist");
-                reject(new Error("Get All Clients Failed: File or Path does not exist"));
+                that.clients = yield excel.extractClientInfo(filepath);
             }
         });
     }
@@ -47,7 +39,6 @@ class LockerSystem {
         let that = this;
         Object.keys(that.clients).forEach(function (floor) {
             let clientsByFloor = that.clients.get(floor);
-            let lockersByFloor = that.availableLockers.get(floor);
             clientsByFloor.sort(function (client1, client2) {
                 if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
                     return -1;
@@ -59,6 +50,19 @@ class LockerSystem {
                     return 0;
                 }
             });
+            let lockersByFloor = that.availableLockers.get(floor);
+            let topLockers = [];
+            let bottomLockers = [];
+            let top = 0;
+            let bot = 0;
+            for (let i = 0; i < lockersByFloor.length; i++) {
+                if (lockersByFloor[i].top()) {
+                    topLockers.push(lockersByFloor[i]);
+                }
+                else {
+                    bottomLockers.push(lockersByFloor[i]);
+                }
+            }
             clientsByFloor.forEach(function (client) {
             });
         });

@@ -18,36 +18,18 @@ export default class LockerSystem {
         Log.trace("Locker System Init");
     }
 
-    public getAvailableLockers(filepath: string): Promise<Map<string, Locker[]>> {
+    public async getAvailableLockers(filepath: string) {
         let that = this;
-        return new Promise(function (resolve, reject) {
-            if (filepath && fs.existsSync(filepath)) {
-                let lockersByFloor = excel.extractLockerInfo(filepath);
-                lockersByFloor.then(function (allLockers) {
-                    that.availableLockers = allLockers;
-                });
-                resolve(lockersByFloor);
-            } else {
-                Log.trace("File or Path does not exist");
-                reject(new Error("Get Available Lockers Failed: File or Path does not exist"));
-            }
-        });
+        if (filepath && fs.existsSync(filepath)) {
+            that.availableLockers = await excel.extractLockerInfo(filepath);
+        }
     }
 
-    public getAllClients(filepath: string): Promise<Map<string, Client[]>> {
+    public async getAllClients(filepath: string) {
         let that = this;
-        return new Promise(function (resolve, reject) {
-            if (filepath && fs.existsSync(filepath)) {
-                let allClients = excel.extractClientInfo(filepath);
-                allClients.then(function (clients) {
-                    that.clients = clients;
-                });
-                resolve(allClients);
-            } else {
-                Log.trace("File or Path does not exist");
-                reject(new Error("Get All Clients Failed: File or Path does not exist"));
-            }
-        });
+        if (filepath && fs.existsSync(filepath)) {
+            that.clients = await excel.extractClientInfo(filepath);
+        }
     }
 
 
@@ -55,7 +37,7 @@ export default class LockerSystem {
         let that = this;
         Object.keys(that.clients).forEach(function (floor) {
             let clientsByFloor = that.clients.get(floor);
-            let lockersByFloor = that.availableLockers.get(floor);
+
             clientsByFloor.sort(function (client1, client2) {
                 if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
                     return -1
@@ -66,8 +48,22 @@ export default class LockerSystem {
                 }
             });
 
+            let lockersByFloor = that.availableLockers.get(floor);
+            let topLockers = [];
+            let bottomLockers = [];
+            let top = 0;
+            let bot = 0;
+
+            for (let i = 0; i < lockersByFloor.length; i++) {
+                if (lockersByFloor[i].top()) {
+                    topLockers.push(lockersByFloor[i]);
+                } else {
+                    bottomLockers.push(lockersByFloor[i]);
+                }
+            }
+
             clientsByFloor.forEach(function (client) {
-                
+
             });
 
         });
