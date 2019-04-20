@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f683a90e-b950-4fdb-986f-c9fec53c57db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ExcelUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ExcelUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ExcelUtils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ExcelUtils.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ExcelUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ExcelUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.ts" afterDir="false" />
@@ -67,26 +69,26 @@
     <session id="-1061511990">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="4" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="7" />
+          <entry key="TypeScriptServerServiceImpl" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ts" value="3657" />
+          <entry key="ts" value="4138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="TypeScript" value="3657" />
+          <entry key="TypeScript" value="4138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -106,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Locker.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
+            <state relative-caret-position="510">
               <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
             </state>
           </provider>
@@ -121,20 +123,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-518">
-              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            <state relative-caret-position="389">
+              <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/ExcelUtils.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
+            <state relative-caret-position="94">
+              <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -142,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="104" column="12" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
+            <state relative-caret-position="-328">
+              <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -160,6 +162,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>fs</find>
+      <find>cellparserforclients</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,11 +171,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/controller/ExcelUtils.ts" />
         <option value="$PROJECT_DIR$/src/controller/Main.ts" />
         <option value="$PROJECT_DIR$/src/controller/Client.ts" />
         <option value="$PROJECT_DIR$/src/controller/Locker.ts" />
         <option value="$PROJECT_DIR$/test/LockerAssignmentSpec.ts" />
+        <option value="$PROJECT_DIR$/src/controller/ExcelUtils.ts" />
         <option value="$PROJECT_DIR$/src/controller/LockerSystem.ts" />
       </list>
     </option>
@@ -257,21 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Mocha.Locker Assignments Read Excels.Lockers: Read XLSX">
-    <configuration name="Locker Assignments Read Excels" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/LockerAssignmentSpec.ts</test-file>
-      <test-names>
-        <name value="Locker Assignments Read Excels" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Mocha.Locker Assignments Read Excels.Locker System Assignment">
     <configuration name="Locker Assignments Read Excels.Clients: Read XLSX" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -314,6 +303,21 @@
       <test-names>
         <name value="Locker Assignments Read Excels" />
         <name value="Locker System Clients" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Locker Assignments Read Excels.Locker System Lockers" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/LockerAssignmentSpec.ts</test-file>
+      <test-names>
+        <name value="Locker Assignments Read Excels" />
+        <name value="Locker System Lockers" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -370,19 +374,19 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.Prelim Tests" />
-      <item itemvalue="Mocha.Locker Assignments Read Excels" />
       <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Clients" />
-      <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Assignment" />
       <item itemvalue="Mocha.Locker Assignments Read Excels.Lockers: Read XLSX" />
       <item itemvalue="Mocha.Locker Assignments Read Excels.Clients: Read XLSX" />
+      <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Lockers" />
+      <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Assignment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Assignment" />
+        <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Lockers" />
         <item itemvalue="Mocha.Locker Assignments Read Excels.Lockers: Read XLSX" />
         <item itemvalue="Mocha.Locker Assignments Read Excels.Clients: Read XLSX" />
         <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Clients" />
-        <item itemvalue="Mocha.Locker Assignments Read Excels" />
-        <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Assignment" />
       </list>
     </recent_temporary>
   </component>
@@ -406,43 +410,44 @@
       <workItem from="1555199764321" duration="816000" />
       <workItem from="1555205276470" duration="1349000" />
       <workItem from="1555207128501" duration="2886000" />
+      <workItem from="1555785621861" duration="4762000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Locker_Assignments_Read_Excels - 2019.04.07 at 19h 38m 32s.xml">
-      <configuration name="Locker Assignments Read Excels" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 50m 27s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Lockers__Read_XLSX - 2019.04.07 at 19h 38m 40s.xml">
-      <configuration name="Locker Assignments Read Excels.Lockers: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 52m 00s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Clients - 2019.04.07 at 19h 39m 27s.xml">
-      <configuration name="Locker Assignments Read Excels.Locker System Clients" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 53m 56s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Clients - 2019.04.07 at 19h 41m 18s.xml">
-      <configuration name="Locker Assignments Read Excels.Locker System Clients" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 54m 07s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Clients__Read_XLSX - 2019.04.07 at 19h 42m 43s.xml">
-      <configuration name="Locker Assignments Read Excels.Clients: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 55m 07s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Clients__Read_XLSX - 2019.04.07 at 19h 43m 58s.xml">
-      <configuration name="Locker Assignments Read Excels.Clients: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 56m 20s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Lockers__Read_XLSX - 2019.04.07 at 19h 51m 46s.xml">
-      <configuration name="Locker Assignments Read Excels.Lockers: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 13h 58m 09s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Lockers__Read_XLSX - 2019.04.07 at 19h 54m 58s.xml">
-      <configuration name="Locker Assignments Read Excels.Lockers: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 14h 01m 54s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Lockers__Read_XLSX - 2019.04.13 at 19h 43m 19s.xml">
-      <configuration name="Locker Assignments Read Excels.Lockers: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 14h 04m 14s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Lockers__Read_XLSX - 2019.04.13 at 19h 43m 29s.xml">
-      <configuration name="Locker Assignments Read Excels.Lockers: Read XLSX" configurationId="mocha-javascript-test-runner" />
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment - 2019.04.20 at 14h 05m 43s.xml">
+      <configuration name="Locker Assignments Read Excels.Locker System Assignment" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53389000" />
+    <option name="totallyTimeSpent" value="58151000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -525,28 +530,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/LockerSystem.ts</url>
-          <line>64</line>
+          <line>65</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/LockerSystem.ts</url>
-          <line>28</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controller/LockerSystem.ts</url>
-          <line>30</line>
-          <option name="timeStamp" value="66" />
+          <line>31</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/ExcelUtils.ts</url>
-          <line>119</line>
-          <option name="timeStamp" value="71" />
+          <line>102</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/ExcelUtils.ts</url>
-          <line>132</line>
-          <option name="timeStamp" value="74" />
+          <line>82</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -574,6 +577,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Main.ts" />
+    <entry file="file://$PROJECT_DIR$/src/controller/Locker.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Client.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -583,29 +593,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="104" column="12" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ExcelUtils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="119" column="13" selection-start-line="119" selection-start-column="13" selection-end-line="119" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Locker.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state relative-caret-position="-328">
+          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-518">
-          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        <state relative-caret-position="389">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ExcelUtils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="87" column="26" lean-forward="true" selection-start-line="87" selection-start-column="26" selection-end-line="87" selection-end-column="26" />
         </state>
       </provider>
     </entry>

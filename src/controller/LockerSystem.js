@@ -11,7 +11,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Util_1 = require("../Util");
 const ExcelUtils_1 = require("./ExcelUtils");
 const fs = require("fs");
-const excel = ExcelUtils_1.default;
 class LockerSystem {
     constructor() {
         this.availableLockers = new Map();
@@ -23,7 +22,7 @@ class LockerSystem {
         return __awaiter(this, void 0, void 0, function* () {
             let that = this;
             if (filepath && fs.existsSync(filepath)) {
-                that.availableLockers = yield excel.extractLockerInfo(filepath);
+                that.availableLockers = yield LockerSystem.excel.extractLockerInfo(filepath);
             }
         });
     }
@@ -31,7 +30,8 @@ class LockerSystem {
         return __awaiter(this, void 0, void 0, function* () {
             let that = this;
             if (filepath && fs.existsSync(filepath)) {
-                that.clients = yield excel.extractClientInfo(filepath);
+                that.clients = yield LockerSystem.excel.extractClientInfo(filepath);
+                let a = that.clients;
             }
         });
     }
@@ -70,5 +70,6 @@ class LockerSystem {
     publishAssignment() {
     }
 }
+LockerSystem.excel = new ExcelUtils_1.default();
 exports.default = LockerSystem;
 //# sourceMappingURL=LockerSystem.js.map

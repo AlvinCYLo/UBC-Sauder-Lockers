@@ -64,7 +64,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read XLSX", async () => {
         let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractLockerInfo("./test/data/Lockers.xlsx");
+            response = await excelUtils.extractLockerInfo("./test/data/Lockers.xlsx");
         } catch (err) {
             response = err;
         } finally {
@@ -75,7 +75,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read CSV", async () => {
         let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractLockerInfo("./test/data/Lockers.csv");
+            response = await excelUtils.extractLockerInfo("./test/data/Lockers.csv");
         } catch (err) {
             response = err;
         } finally {
@@ -86,7 +86,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Clients: Read XLSX", async () => {
         let response: Map<string, any[]>;
         try {
-            response = await ExcelUtils.extractClientInfo("./test/data/Clients.xlsx");
+            response = await excelUtils.extractClientInfo("./test/data/Clients.xlsx");
         } catch (err) {
             response = err;
         } finally {

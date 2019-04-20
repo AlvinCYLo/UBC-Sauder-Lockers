@@ -4,12 +4,12 @@ import Log from "../Util";
 import ExcelUtils from "./ExcelUtils";
 
 const fs = require("fs");
-const excel = ExcelUtils;
 
 export default class LockerSystem {
     private availableLockers: Map<string, Locker[]>;
     private clients: Map<string, Client[]>;
     private lockerAssignments: Map<Client, Locker[]>;
+    private static excel: ExcelUtils = new ExcelUtils();
 
     constructor() {
         this.availableLockers = new Map<string, Locker[]>();
@@ -21,14 +21,15 @@ export default class LockerSystem {
     public async getAvailableLockers(filepath: string) {
         let that = this;
         if (filepath && fs.existsSync(filepath)) {
-            that.availableLockers = await excel.extractLockerInfo(filepath);
+            that.availableLockers = await LockerSystem.excel.extractLockerInfo(filepath);
         }
     }
 
     public async getAllClients(filepath: string) {
         let that = this;
         if (filepath && fs.existsSync(filepath)) {
-            that.clients = await excel.extractClientInfo(filepath);
+            that.clients = await LockerSystem.excel.extractClientInfo(filepath);
+            let a = that.clients;
         }
     }
 

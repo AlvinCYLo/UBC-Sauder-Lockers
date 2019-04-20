@@ -1,64 +1,50 @@
-import { Locker } from "./Locker";
-import { Client } from "./Client";
+import {Locker} from "./Locker";
+import {Client} from "./Client";
 
 const Excel = require("exceljs");
 
 export default class ExcelUtils {
 
-    public static extractLockerInfo(filename: string): Promise<Map<string, Locker[]>> {
+    public extractLockerInfo(filename: string): Promise<Map<string, Locker[]>> {
         let that = this;
-        return new Promise(function (resolve, reject) {
+        return new Promise(async function (resolve, reject) {
             let lockersOnFloor = new Map<string, any[]>();
             let workbook = new Excel.Workbook();
 
             if (filename && filename.endsWith(".xlsx")) {
-                workbook.xlsx.readFile(filename)
-                    .then(function (file: any) {
-                        that.cellParserForLockers(file, lockersOnFloor);
-                        resolve(lockersOnFloor);
-                    }).catch(function (e: Error) {
-                        reject("XLSX Error: " + e.message);
-                    })
+                let file = await workbook.xlsx.readFile(filename);
+                that.cellParserForLockers(file, lockersOnFloor);
+                resolve(lockersOnFloor);
+
             } else if (filename && filename.endsWith(".csv")) {
-                workbook.csv.readFile(filename)
-                    .then(function (file: any) {
-                        that.cellParserForLockers(file, lockersOnFloor);
-                        resolve(lockersOnFloor);
-                    }).catch(function (e: Error) {
-                        reject("CSV Error: " + e.message);
-                    })
+                let file = await workbook.csv.readFile(filename);
+                that.cellParserForLockers(file, lockersOnFloor);
+                resolve(lockersOnFloor);
             }
         });
     }
 
 
-    public static extractClientInfo(filename: string): Promise<Map<string, Client[]>> {
+    public extractClientInfo(filename: string): Promise<Map<string, Client[]>> {
         let that = this;
-        return new Promise(function (resolve, reject) {
+        return new Promise(async function (resolve, reject) {
             let clientsByFloor = new Map<string, any[]>();
             let workbook = new Excel.Workbook();
 
             if (filename && filename.endsWith(".xlsx")) {
-                workbook.xlsx.readFile(filename)
-                    .then(function (file: any) {
-                        that.cellParserForClients(file, clientsByFloor);
-                        resolve(clientsByFloor);
-                    }).catch(function (e: Error) {
-                        reject("XLSX Error: " + e.message);
-                    })
+                let file = await workbook.xlsx.readFile(filename);
+                that.cellParserForClients(file, clientsByFloor);
+                resolve(clientsByFloor);
+
             } else if (filename && filename.endsWith(".csv")) {
-                workbook.csv.readFile(filename)
-                    .then(function (file: any) {
-                        that.cellParserForClients(file, clientsByFloor);
-                        resolve(clientsByFloor);
-                    }).catch(function (e: Error) {
-                        reject("CSV Error: " + e.message);
-                    })
+                let file = await workbook.xlsx.readFile(filename);
+                that.cellParserForClients(file, clientsByFloor);
+                resolve(clientsByFloor);
             }
         });
     }
 
-    private static getColumnIndex(allColumnNames: any[]): any {
+    private getColumnIndex(allColumnNames: any[]): any {
         let columnIndexes: any = {};
 
         // indexes for possibly changing excel columns
@@ -93,7 +79,7 @@ export default class ExcelUtils {
         return columnIndexes;
     }
 
-    private static cellParserForClients(file: any, clientsByFloor: Map<string, Client[]>): void {
+    private cellParserForClients(file: any, clientsByFloor: Map<string, Client[]>): void {
         let that = this;
         let allColumnNames = file._worksheets[1]._rows[0]._cells;
         let columnIndex: any = that.getColumnIndex(allColumnNames);
@@ -116,7 +102,7 @@ export default class ExcelUtils {
         });
     }
 
-    private static cellParserForLockers(file: any, lockersOnFloor: Map<string, Locker[]>): void {
+    private cellParserForLockers(file: any, lockersOnFloor: Map<string, Locker[]>): void {
         file.worksheets.forEach(function (worksheet: any) {
             worksheet._rows.forEach(function (cell: any) {
                 let locker = new Locker(cell._cells[0]._value.model.value);

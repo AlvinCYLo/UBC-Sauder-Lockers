@@ -64,7 +64,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read XLSX", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            response = yield ExcelUtils_1.default.extractLockerInfo("./test/data/Lockers.xlsx");
+            response = yield excelUtils.extractLockerInfo("./test/data/Lockers.xlsx");
         }
         catch (err) {
             response = err;
@@ -76,7 +76,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Lockers: Read CSV", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            response = yield ExcelUtils_1.default.extractLockerInfo("./test/data/Lockers.csv");
+            response = yield excelUtils.extractLockerInfo("./test/data/Lockers.csv");
         }
         catch (err) {
             response = err;
@@ -88,7 +88,7 @@ describe("Locker Assignments Read Excels", function () {
     it("Clients: Read XLSX", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            response = yield ExcelUtils_1.default.extractClientInfo("./test/data/Clients.xlsx");
+            response = yield excelUtils.extractClientInfo("./test/data/Clients.xlsx");
         }
         catch (err) {
             response = err;
