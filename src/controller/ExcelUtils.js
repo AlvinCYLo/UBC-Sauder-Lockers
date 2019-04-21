@@ -89,7 +89,7 @@ class ExcelUtils {
         let orders = file._worksheets[1]._rows;
         orders.forEach(function (order, i) {
             if (i !== 0) {
-                let client = new Client_1.Client(orders[i]._cells[columnIndex.firstName], orders[i]._cells[columnIndex.lastName], parseInt(orders[i]._cells[columnIndex.phoneNumber]), orders[i]._cells[columnIndex.emailAddress], parseInt(orders[i]._cells[columnIndex.studentNumber]), orders[i]._cells[columnIndex.floorPreference], new Date(orders[i]._cells[columnIndex.dateOfPurchase]), orders[i]._cells[columnIndex.lockerPlacement]);
+                let client = new Client_1.Client(orders[i]._cells[columnIndex.firstName]._value.value, orders[i]._cells[columnIndex.lastName]._value.value, parseInt(orders[i]._cells[columnIndex.phoneNumber]._value.value), orders[i]._cells[columnIndex.emailAddress]._value.value, parseInt(orders[i]._cells[columnIndex.studentNumber]._value.value), orders[i]._cells[columnIndex.floorPreference]._value.value, new Date(orders[i]._cells[columnIndex.dateOfPurchase]._value.value), orders[i]._cells[columnIndex.lockerPlacement]._value.value);
                 let floorPref = client.getFloorPreference();
                 if (clientsByFloor.has(floorPref)) {
                     let oldVal = clientsByFloor.get(floorPref);

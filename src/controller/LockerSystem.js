@@ -31,7 +31,6 @@ class LockerSystem {
             let that = this;
             if (filepath && fs.existsSync(filepath)) {
                 that.clients = yield LockerSystem.excel.extractClientInfo(filepath);
-                let a = that.clients;
             }
         });
     }

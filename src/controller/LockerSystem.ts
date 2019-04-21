@@ -29,7 +29,6 @@ export default class LockerSystem {
         let that = this;
         if (filepath && fs.existsSync(filepath)) {
             that.clients = await LockerSystem.excel.extractClientInfo(filepath);
-            let a = that.clients;
         }
     }
 
