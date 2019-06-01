@@ -124,9 +124,9 @@ describe("Locker Assignments Read Excels", function () {
     it("Locker System Assignment", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
-            let lockers = yield ls.getAvailableLockers("./test/data/Lockers.xlsx");
-            let clients = yield ls.getAllClients("./test/data/Clients.xlsx");
-            response = yield ls.makeAssignments();
+            yield ls.getAvailableLockers("./test/data/Lockers.xlsx");
+            yield ls.getAllClients("./test/data/Clients.xlsx");
+            ls.makeAssignments();
         }
         catch (err) {
             response = err;

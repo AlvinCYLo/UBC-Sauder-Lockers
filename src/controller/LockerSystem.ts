@@ -35,38 +35,39 @@ export default class LockerSystem {
 
     public makeAssignments(): void {
         let that = this;
-        Object.keys(that.clients).forEach(function (floor) {
-            let clientsByFloor = that.clients.get(floor);
+        let floors = that.clients.keys();
+        let a = that.clients.entries();
+        let clientsByFloor = that.clients.get(floor);
 
-            clientsByFloor.sort(function (client1, client2) {
-                if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
-                    return -1
-                } else if (client1.getDateOfPurchase() > client2.getDateOfPurchase()) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            });
-
-            let lockersByFloor = that.availableLockers.get(floor);
-            let topLockers = [];
-            let bottomLockers = [];
-            let top = 0;
-            let bot = 0;
-
-            for (let i = 0; i < lockersByFloor.length; i++) {
-                if (lockersByFloor[i].top()) {
-                    topLockers.push(lockersByFloor[i]);
-                } else {
-                    bottomLockers.push(lockersByFloor[i]);
-                }
+        clientsByFloor.sort(function (client1, client2) {
+            if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
+                return -1
+            } else if (client1.getDateOfPurchase() > client2.getDateOfPurchase()) {
+                return 1;
+            } else {
+                return 0;
             }
+        });
 
-            clientsByFloor.forEach(function (client) {
+        let lockersByFloor = that.availableLockers.get(floor);
+        let topLockers = [];
+        let bottomLockers = [];
+        let top = 0;
+        let bot = 0;
 
-            });
+        for (let i = 0; i < lockersByFloor.length; i++) {
+            if (lockersByFloor[i].top()) {
+                topLockers.push(lockersByFloor[i]);
+            } else {
+                bottomLockers.push(lockersByFloor[i]);
+            }
+        }
+
+        clientsByFloor.forEach(function (client) {
 
         });
+
+
     }
 
     public publishAssignment(): void {
