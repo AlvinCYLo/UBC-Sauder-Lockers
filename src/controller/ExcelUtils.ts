@@ -117,6 +117,13 @@ export default class ExcelUtils {
             });
         });
     }
+
+    private publishLockerAssignments(): void {
+        let that = this;
+        let workbook = Excel.createAndFillWorkbook();
+        
+    }
+
 }
 
 

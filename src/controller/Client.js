@@ -7,21 +7,20 @@ class Client {
         this.phoneNumber = phone;
         this.emailAddress = email;
         this.studentNumber = stuNum;
-        this.locker = null;
+        this.lockers = null;
         this.floorPreference = pref;
         this.dateOfPurchase = purchaseDate;
         this.lockerPlacement = topOrBot;
     }
     setLocker(l) {
-        this.locker = l;
-        l.setClientOfLocker(this);
-    }
-    isAssignedLocker() {
-        if (this.locker) {
-            return true;
+        if (!this.lockers) {
+            this.lockers = [];
+            this.lockers.push(l);
+            l.setClientOfLocker(this);
         }
         else {
-            return false;
+            this.lockers.push(l);
+            l.setClientOfLocker(this);
         }
     }
     getFloorPreference() {
@@ -29,6 +28,12 @@ class Client {
     }
     getDateOfPurchase() {
         return this.dateOfPurchase;
+    }
+    getLockerPlacement() {
+        return this.lockerPlacement;
+    }
+    getLockers() {
+        return this.lockers;
     }
 }
 exports.Client = Client;

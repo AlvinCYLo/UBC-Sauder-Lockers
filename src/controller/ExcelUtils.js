@@ -118,6 +118,10 @@ class ExcelUtils {
             });
         });
     }
+    publishLockerAssignments() {
+        let that = this;
+        let workbook = Excel.createAndFillWorkbook();
+    }
 }
 exports.default = ExcelUtils;
 //# sourceMappingURL=ExcelUtils.js.map

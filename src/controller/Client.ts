@@ -7,7 +7,7 @@ export class Client {
     private phoneNumber: number;
     private emailAddress: string;
     private studentNumber: number;
-    private locker: Locker;
+    private lockers: Locker[];
     private floorPreference: string;
     private dateOfPurchase: Date;
     private lockerPlacement: string;
@@ -18,22 +18,20 @@ export class Client {
         this.phoneNumber = phone;
         this.emailAddress = email;
         this.studentNumber = stuNum;
-        this.locker = null;
+        this.lockers = null;
         this.floorPreference = pref;
         this.dateOfPurchase = purchaseDate;
         this.lockerPlacement = topOrBot;
     }
 
     public setLocker(l: Locker): void {
-        this.locker = l;
-        l.setClientOfLocker(this);
-    }
-
-    public isAssignedLocker(): boolean {
-        if (this.locker) {
-            return true;
+        if(!this.lockers){
+            this.lockers = [];
+            this.lockers.push(l);
+            l.setClientOfLocker(this);
         } else {
-            return false;
+            this.lockers.push(l);
+            l.setClientOfLocker(this);
         }
     }
 
@@ -43,6 +41,14 @@ export class Client {
 
     public getDateOfPurchase(): Date {
         return this.dateOfPurchase;
+    }
+
+    public getLockerPlacement(): string {
+        return this.lockerPlacement;
+    }
+
+    public getLockers(): Locker[] {
+        return this.lockers;
     }
 
 }
