@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f683a90e-b950-4fdb-986f-c9fec53c57db" name="Default Changelist" comment="">
+    <list default="true" id="f683a90e-b950-4fdb-986f-c9fec53c57db" name="Default Changelist" comment="Assignment and Publishing of Locker Allocations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.bin/_ts-node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/_ts-node" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.bin/atob" beforeDir="false" />
@@ -3331,18 +3331,6 @@
       <change beforePath="$PROJECT_DIR$/node_modules/yeast/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yeast/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/yn/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yn/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/zip-stream/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/zip-stream/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Client.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Client.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ExcelUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ExcelUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ExcelUtils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ExcelUtils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ExcelUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ExcelUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data/Lockers.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/Lockers.xlsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -3362,13 +3350,14 @@
     <session id="504759613">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -3383,18 +3372,20 @@
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="4" />
+          <entry key="TypeScriptServerServiceImpl" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="67" />
           <entry key="ts" value="3642" />
+          <entry key="txt" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="67" />
+          <entry key="PLAIN_TEXT" value="63" />
           <entry key="TypeScript" value="3642" />
         </counts>
       </usages-collector>
@@ -3443,11 +3434,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1139">
-              <caret line="23" column="54" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="54" />
+            <state relative-caret-position="131">
+              <caret line="98" column="30" lean-forward="true" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -3458,8 +3449,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Client.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="544">
+              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -3467,17 +3458,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Locker.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="204">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/ExcelUtils.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
+            <state relative-caret-position="111">
+              <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -3488,7 +3479,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
+            <state relative-caret-position="2057">
               <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
             </state>
           </provider>
@@ -3553,36 +3544,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cuslockers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cuslockers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cuslockers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cuslockers" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cuslockers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cuslockers" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cuslockers" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cuslockers" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -3764,7 +3726,16 @@
       <workItem from="1557595121008" duration="1716000" />
       <workItem from="1559417951974" duration="410000" />
       <workItem from="1559418507010" duration="8329000" />
+      <workItem from="1559522616837" duration="250000" />
     </task>
+    <task id="LOCAL-00001" summary="Assignment and Publishing of Locker Allocations">
+      <created>1559522879105</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559522879105</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -3800,7 +3771,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76269000" />
+    <option name="totallyTimeSpent" value="76519000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
@@ -3810,6 +3781,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32924694" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3257443" />
@@ -3878,13 +3850,16 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Assignment and Publishing of Locker Allocations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assignment and Publishing of Locker Allocations" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/LockerSystem.ts</url>
           <line>88</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="125" />
         </line-breakpoint>
       </breakpoints>
@@ -3940,41 +3915,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Locker.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Client.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="544">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
+    <entry file="file://$PROJECT_DIR$/src/controller/Locker.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1139">
-          <caret line="23" column="54" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
+        <state relative-caret-position="2057">
           <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ExcelUtils.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
+        <state relative-caret-position="111">
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="98" column="30" lean-forward="true" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
