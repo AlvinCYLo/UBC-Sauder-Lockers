@@ -118,9 +118,16 @@ class ExcelUtils {
             });
         });
     }
-    publishLockerAssignments() {
+    publishLockerAssignments(filename) {
         let that = this;
+        return new Promise(function (resolve, reject) {
+            return __awaiter(this, void 0, void 0, function* () {
+            });
+        });
         let workbook = Excel.createAndFillWorkbook();
+        workbook.xlsx.writeFile(filename)
+            .then(function () {
+        });
     }
 }
 exports.default = ExcelUtils;

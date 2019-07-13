@@ -118,10 +118,17 @@ export default class ExcelUtils {
         });
     }
 
-    private publishLockerAssignments(): void {
+    private publishLockerAssignments(filename: string): Promise<string> {
         let that = this;
+        return new Promise( async function(resolve, reject){
+
+        });
+
         let workbook = Excel.createAndFillWorkbook();
-        
+        workbook.xlsx.writeFile(filename)
+            .then(function() {
+                // done
+            });
     }
 
 }

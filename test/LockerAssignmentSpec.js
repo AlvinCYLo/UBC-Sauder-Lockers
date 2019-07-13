@@ -121,12 +121,13 @@ describe("Locker Assignments Read Excels", function () {
             chai_1.expect(response).to.be.equal(new Map());
         }
     }));
-    it("Locker System Assignment", () => __awaiter(this, void 0, void 0, function* () {
+    it("Locker System Assignment and Publish", () => __awaiter(this, void 0, void 0, function* () {
         let response;
         try {
             yield ls.getAvailableLockers("./test/data/Lockers.xlsx");
             yield ls.getAllClients("./test/data/Clients.xlsx");
             ls.makeAssignments();
+            ls.publishAssignment();
         }
         catch (err) {
             response = err;

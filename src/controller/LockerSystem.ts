@@ -87,18 +87,11 @@ export default class LockerSystem {
                 }
             });
         }
-
-
-
     }
 
     public publishAssignment(): void {
         let that = this;
-        let workbook = excel.createAndFillWorkbook();
-        workbook.xlsx.writeFile(filename)
-            .then(function() {
-                // done
-            });
+
     }
 
 

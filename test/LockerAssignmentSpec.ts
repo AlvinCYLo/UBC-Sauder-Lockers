@@ -117,12 +117,13 @@ describe("Locker Assignments Read Excels", function () {
         }
     });
 
-    it("Locker System Assignment", async () => {
+    it("Locker System Assignment and Publish", async () => {
         let response: any;
         try {
             await ls.getAvailableLockers("./test/data/Lockers.xlsx");
             await ls.getAllClients("./test/data/Clients.xlsx");
             ls.makeAssignments();
+            ls.publishAssignment();
         } catch (err) {
             response = err;
         } finally {

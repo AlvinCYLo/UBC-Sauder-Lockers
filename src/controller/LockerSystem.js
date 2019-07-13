@@ -94,10 +94,6 @@ class LockerSystem {
     }
     publishAssignment() {
         let that = this;
-        let workbook = excel.createAndFillWorkbook();
-        workbook.xlsx.writeFile(filename)
-            .then(function () {
-        });
     }
 }
 LockerSystem.excel = new ExcelUtils_1.default();
