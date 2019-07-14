@@ -92,7 +92,7 @@ export default class LockerSystem {
     public async publishAssignment() {
         let date = new Date();
         const workbook = LockerSystem.excel.createAndLoadWorkbook(this.lockerAssignments);
-        LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
+        await LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
     }
 
 }

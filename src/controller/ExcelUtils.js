@@ -178,6 +178,7 @@ class ExcelUtils {
                     lockerNumber: locker.getLockerNumber
                 });
             });
+            currentSheet = keys.next().value;
         }
     }
     ;

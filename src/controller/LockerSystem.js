@@ -96,7 +96,7 @@ class LockerSystem {
         return __awaiter(this, void 0, void 0, function* () {
             let date = new Date();
             const workbook = LockerSystem.excel.createAndLoadWorkbook(this.lockerAssignments);
-            LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
+            yield LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
         });
     }
 }
