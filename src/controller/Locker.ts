@@ -26,10 +26,6 @@ export class Locker {
         }
     }
 
-    public getLockerNumber(): number {
-        return this.id;
-    }
-
     public setClientOfLocker(student: Client): void {
         this.student = student;
     }
@@ -42,4 +38,11 @@ export class Locker {
         return this.topLocker;
     }
 
+    public getClient(): Client {
+        return this.student;
+    }
+
+    public getLockerNumber(): number {
+        return this.id;
+    }
 }

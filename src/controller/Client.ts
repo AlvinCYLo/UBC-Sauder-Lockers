@@ -51,4 +51,24 @@ export class Client {
         return this.lockers;
     }
 
+    public getFirstName(): String {
+        return this.firstName;
+    }
+
+    public getLastName(): String {
+        return this.lastName;
+    }
+
+    public getStudentNumber(): number {
+        return this.studentNumber;
+    }
+
+    public getPhoneNumber(): number {
+        return this.phoneNumber;
+    }
+
+    public getEmailAddress(): String {
+        return this.emailAddress;
+    }
+
 }

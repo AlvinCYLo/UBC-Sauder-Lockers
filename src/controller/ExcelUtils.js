@@ -11,6 +11,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Locker_1 = require("./Locker");
 const Client_1 = require("./Client");
 const Excel = require("exceljs");
+const COLUMNS = [
+    { header: 'First Name', key: 'firstName', width: 20 },
+    { header: 'Last Name', key: 'lastName', width: 20 },
+    { header: 'Student Number', key: 'studentNumber', width: 20 },
+    { header: 'Phone Number', key: 'phoneNumber', width: 20 },
+    { header: 'Email Address', key: 'emailAddress', width: 20 },
+    { header: 'Locker Number', key: 'lockerNumber', width: 20 },
+];
 class ExcelUtils {
     extractLockerInfo(filename) {
         let that = this;
@@ -118,20 +126,72 @@ class ExcelUtils {
             });
         });
     }
-    publishLockerAssignments(filename, assignments) {
-        return new Promise(function (resolve, reject) {
-            return __awaiter(this, void 0, void 0, function* () {
-                let workbook = Excel.createAndFillWorkbook();
-                workbook.xlsx.writeFile(filename)
-                    .then(function () {
-                    let allAssignments = assignments.values();
-                    let next = allAssignments.next().value;
-                    while (next) {
-                        next.forEach((ass) => {
-                        });
-                    }
+    createAndLoadWorkbook(assignments) {
+        let workbook = new Excel.workbook;
+        workbook.addWorksheet("Basement");
+        workbook.addWorksheet("Second Floor");
+        workbook.addWorksheet("Third Floor");
+        workbook.addWorksheet("Fourth Floor");
+        this.loadWorkbook(assignments, workbook);
+        this.formatWorkbook(workbook);
+        return workbook;
+    }
+    ;
+    loadWorkbook(assignments, workbook) {
+        let basement = [], second = [], third = [], fourth = [];
+        assignments.forEach((value) => {
+            value.forEach((locker) => {
+                switch (locker.getLockerFloor()) {
+                    case "Basement":
+                        basement.push(locker);
+                        break;
+                    case "Second Floor":
+                        second.push(locker);
+                        break;
+                    case "Third Floor":
+                        third.push(locker);
+                        break;
+                    case "Fourth Floor":
+                        fourth.push(locker);
+                        break;
+                }
+            });
+        });
+        let allFloors = new Map();
+        allFloors.set("Basement", basement);
+        allFloors.set("Second Floor", second);
+        allFloors.set("Third Floor", third);
+        allFloors.set("Fourth Floor", fourth);
+        let keys = allFloors.keys();
+        let currentSheet = keys.next().value;
+        while (currentSheet) {
+            let sheet = workbook.getWorksheet(currentSheet);
+            sheet.columns = COLUMNS;
+            let lockers = allFloors.get(currentSheet);
+            lockers.forEach((locker) => {
+                sheet.addRow({
+                    firstName: locker.getClient().getFirstName(),
+                    lastName: locker.getClient().getLastName(),
+                    studentNumber: locker.getClient().getStudentNumber(),
+                    phoneNumber: locker.getClient().getPhoneNumber(),
+                    emailAddress: locker.getClient().getEmailAddress(),
+                    lockerNumber: locker.getLockerNumber
                 });
             });
+        }
+    }
+    ;
+    formatWorkbook(workbook) {
+        workbook.eachSheet((worksheet) => {
+            worksheet.getRow(1).eachCell((cell) => {
+                cell.font = { bold: true };
+            });
+        });
+    }
+    ;
+    publishLockerAssignments(filename, workbook) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield workbook.xlsx.writeFile(filename);
         });
     }
 }

@@ -35,6 +35,21 @@ class Client {
     getLockers() {
         return this.lockers;
     }
+    getFirstName() {
+        return this.firstName;
+    }
+    getLastName() {
+        return this.lastName;
+    }
+    getStudentNumber() {
+        return this.studentNumber;
+    }
+    getPhoneNumber() {
+        return this.phoneNumber;
+    }
+    getEmailAddress() {
+        return this.emailAddress;
+    }
 }
 exports.Client = Client;
 //# sourceMappingURL=Client.js.map

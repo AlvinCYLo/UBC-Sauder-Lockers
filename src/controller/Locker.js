@@ -22,9 +22,6 @@ class Locker {
             this.floor = "Basement";
         }
     }
-    getLockerNumber() {
-        return this.id;
-    }
     setClientOfLocker(student) {
         this.student = student;
     }
@@ -33,6 +30,12 @@ class Locker {
     }
     top() {
         return this.topLocker;
+    }
+    getClient() {
+        return this.student;
+    }
+    getLockerNumber() {
+        return this.id;
     }
 }
 exports.Locker = Locker;

@@ -1,9 +1,9 @@
-import {expect} from "chai";
-
 import ExcelUtils from "../src/controller/ExcelUtils";
 import Log from "../src/Util";
 import TestUtil from "./TestUtil";
 import LockerSystem from "../src/controller/LockerSystem";
+
+import {expect} from "chai";
 
 const Excel = require("exceljs");
 
