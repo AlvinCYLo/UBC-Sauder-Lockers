@@ -93,7 +93,10 @@ class LockerSystem {
         }
     }
     publishAssignment() {
-        let that = this;
+        return __awaiter(this, void 0, void 0, function* () {
+            let date = new Date();
+            LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear() + " _Locker Assignments", this.lockerAssignments);
+        });
     }
 }
 LockerSystem.excel = new ExcelUtils_1.default();

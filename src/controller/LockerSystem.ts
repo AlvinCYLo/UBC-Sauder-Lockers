@@ -89,10 +89,9 @@ export default class LockerSystem {
         }
     }
 
-    public publishAssignment(): void {
-        let that = this;
-
+    public async publishAssignment() {
+        let date = new Date();
+        LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear() + " _Locker Assignments", this.lockerAssignments);
     }
-
 
 }

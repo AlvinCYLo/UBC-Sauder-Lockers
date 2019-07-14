@@ -118,15 +118,20 @@ class ExcelUtils {
             });
         });
     }
-    publishLockerAssignments(filename) {
-        let that = this;
+    publishLockerAssignments(filename, assignments) {
         return new Promise(function (resolve, reject) {
             return __awaiter(this, void 0, void 0, function* () {
+                let workbook = Excel.createAndFillWorkbook();
+                workbook.xlsx.writeFile(filename)
+                    .then(function () {
+                    let allAssignments = assignments.values();
+                    let next = allAssignments.next().value;
+                    while (next) {
+                        next.forEach((ass) => {
+                        });
+                    }
+                });
             });
-        });
-        let workbook = Excel.createAndFillWorkbook();
-        workbook.xlsx.writeFile(filename)
-            .then(function () {
         });
     }
 }

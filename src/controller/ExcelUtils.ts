@@ -118,17 +118,22 @@ export default class ExcelUtils {
         });
     }
 
-    private publishLockerAssignments(filename: string): Promise<string> {
-        let that = this;
+    public publishLockerAssignments(filename: string, assignments: Map<Client, Locker[]>): Promise<string> {
         return new Promise( async function(resolve, reject){
+            let workbook = Excel.createAndFillWorkbook();
+            workbook.xlsx.writeFile(filename)
+                .then(function() {
+                    let allAssignments = assignments.values();
+                    let next = allAssignments.next().value;
+                    while(next){
+                        next.forEach((ass) => {
 
+                        });
+                    }
+
+                });
         });
 
-        let workbook = Excel.createAndFillWorkbook();
-        workbook.xlsx.writeFile(filename)
-            .then(function() {
-                // done
-            });
     }
 
 }
