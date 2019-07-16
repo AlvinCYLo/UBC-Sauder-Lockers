@@ -34,12 +34,33 @@ class LockerSystem {
             }
         });
     }
+    carryOverTo(currentFloor) {
+        switch (currentFloor) {
+            case "Basement":
+                return "Second Floor";
+            case "Second Floor":
+                return "Third Floor";
+            case "Third Floor":
+                return "Fourth Floor";
+        }
+    }
     makeAssignments() {
         let that = this;
         let floors = that.clients.keys();
         while (floors) {
             let currentFloor = floors.next().value;
             let clientsByFloor = that.clients.get(currentFloor);
+            let lockersByFloor = that.availableLockers.get(currentFloor);
+            let lockersSize = lockersByFloor.length;
+            let clientSize = clientsByFloor.length;
+            if (clientSize > lockersSize) {
+                let excess = clientSize - lockersSize;
+                let carryOver = clientsByFloor.splice(clientsByFloor.length - 1 - excess, excess);
+                let target = this.carryOverTo(currentFloor);
+                let update = that.clients.get(target);
+                update.push(...carryOver);
+                that.clients.set(target, update);
+            }
             clientsByFloor.sort(function (client1, client2) {
                 if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
                     return -1;
@@ -51,7 +72,6 @@ class LockerSystem {
                     return 0;
                 }
             });
-            let lockersByFloor = that.availableLockers.get(currentFloor);
             let topLockers = [];
             let bottomLockers = [];
             let top = 0;
@@ -65,6 +85,12 @@ class LockerSystem {
                 }
             }
             clientsByFloor.forEach(function (client) {
+                if (top >= topLockers.length) {
+                    client.setLockerPreference("Bottom Locker");
+                }
+                else if (bot >= bottomLockers.length) {
+                    client.setLockerPreference("Top Locker");
+                }
                 if (client.getLockerPlacement() === "Top Locker") {
                     client.setLocker(topLockers[top]);
                     if (that.lockerAssignments.has(client)) {

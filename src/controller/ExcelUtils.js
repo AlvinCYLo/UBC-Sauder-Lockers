@@ -175,7 +175,7 @@ class ExcelUtils {
                     studentNumber: locker.getClient().getStudentNumber(),
                     phoneNumber: locker.getClient().getPhoneNumber(),
                     emailAddress: locker.getClient().getEmailAddress(),
-                    lockerNumber: locker.getLockerNumber
+                    lockerNumber: locker.getLockerNumber()
                 });
             });
             currentSheet = keys.next().value;

@@ -32,12 +32,36 @@ export default class LockerSystem {
         }
     }
 
+    private carryOverTo(currentFloor: string) {
+        switch (currentFloor) {
+            case "Basement":
+                return "Second Floor";
+            case "Second Floor":
+                return "Third Floor";
+            case "Third Floor":
+                return "Fourth Floor";
+        }
+    }
+
     public makeAssignments(): void {
         let that = this;
         let floors = that.clients.keys();
-        while(floors){
+        while (floors) {
             let currentFloor = floors.next().value;
             let clientsByFloor = that.clients.get(currentFloor);
+            let lockersByFloor = that.availableLockers.get(currentFloor);
+
+            let lockersSize = lockersByFloor.length;
+            let clientSize = clientsByFloor.length;
+
+            if (clientSize > lockersSize) {
+                let excess = clientSize - lockersSize;
+                let carryOver = clientsByFloor.splice(clientsByFloor.length - 1 - excess, excess);
+                let target = this.carryOverTo(currentFloor);
+                let update = that.clients.get(target);
+                update.push(...carryOver);
+                that.clients.set(target, update);
+            }
 
             clientsByFloor.sort(function (client1, client2) {
                 if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
@@ -49,7 +73,6 @@ export default class LockerSystem {
                 }
             });
 
-            let lockersByFloor = that.availableLockers.get(currentFloor);
             let topLockers: Locker[] = [];
             let bottomLockers: Locker[] = [];
             let top = 0;
@@ -64,9 +87,15 @@ export default class LockerSystem {
             }
 
             clientsByFloor.forEach(function (client) {
-                if(client.getLockerPlacement() === "Top Locker"){
+                if (top >= topLockers.length) {
+                    client.setLockerPreference("Bottom Locker");
+                } else if (bot >= bottomLockers.length) {
+                    client.setLockerPreference("Top Locker");
+                }
+
+                if (client.getLockerPlacement() === "Top Locker") {
                     client.setLocker(topLockers[top]);
-                    if(that.lockerAssignments.has(client)){
+                    if (that.lockerAssignments.has(client)) {
                         let lockers = that.lockerAssignments.get(client);
                         lockers.push(topLockers[top]);
                         that.lockerAssignments.set(client, lockers);
@@ -76,7 +105,7 @@ export default class LockerSystem {
                     top++;
                 } else {
                     client.setLocker(bottomLockers[bot]);
-                    if(that.lockerAssignments.has(client)){
+                    if (that.lockerAssignments.has(client)) {
                         let lockers = that.lockerAssignments.get(client);
                         lockers.push(bottomLockers[bot]);
                         that.lockerAssignments.set(client, lockers);
@@ -92,7 +121,7 @@ export default class LockerSystem {
     public async publishAssignment() {
         let date = new Date();
         const workbook = LockerSystem.excel.createAndLoadWorkbook(this.lockerAssignments);
-        await LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth()+1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
+        await LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
     }
 
 }

@@ -25,7 +25,7 @@ export class Client {
     }
 
     public setLocker(l: Locker): void {
-        if(!this.lockers){
+        if (!this.lockers) {
             this.lockers = [];
             this.lockers.push(l);
             l.setClientOfLocker(this);
@@ -69,6 +69,10 @@ export class Client {
 
     public getEmailAddress(): String {
         return this.emailAddress;
+    }
+
+    public setLockerPreference(pref: string) {
+        this.lockerPlacement = pref;
     }
 
 }

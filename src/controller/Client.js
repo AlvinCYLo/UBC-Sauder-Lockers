@@ -50,6 +50,9 @@ class Client {
     getEmailAddress() {
         return this.emailAddress;
     }
+    setLockerPreference(pref) {
+        this.lockerPlacement = pref;
+    }
 }
 exports.Client = Client;
 //# sourceMappingURL=Client.js.map
