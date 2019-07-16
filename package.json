@@ -2,10 +2,10 @@
   "name": "cuslockers",
   "version": "1.0.0",
   "description": "Locker System for the Commerce Undergraduate Society",
-  "main": "main.js",
+  "main": "App.ts",
   "scripts": {
     "test": "mocha",
-    "start": "node main.js"
+    "start": "node App.js"
   },
   "repository": {
     "type": "git",

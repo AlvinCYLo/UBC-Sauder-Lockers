@@ -10,9 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const ExcelUtils_1 = require("../src/controller/ExcelUtils");
 const Util_1 = require("../src/Util");
-const TestUtil_1 = require("./TestUtil");
 const LockerSystem_1 = require("../src/controller/LockerSystem");
 const chai_1 = require("chai");
+const TestUtil_1 = require("./TestUtil");
 const Excel = require("exceljs");
 describe("Locker Assignments Read Excels", function () {
     const excels = {
