@@ -127,7 +127,7 @@ class ExcelUtils {
         });
     }
     createAndLoadWorkbook(assignments) {
-        let workbook = new Excel.workbook;
+        let workbook = new Excel.Workbook();
         workbook.addWorksheet("Basement");
         workbook.addWorksheet("Second Floor");
         workbook.addWorksheet("Third Floor");
@@ -163,22 +163,27 @@ class ExcelUtils {
         allFloors.set("Third Floor", third);
         allFloors.set("Fourth Floor", fourth);
         let keys = allFloors.keys();
-        let currentSheet = keys.next().value;
-        while (currentSheet) {
-            let sheet = workbook.getWorksheet(currentSheet);
-            sheet.columns = COLUMNS;
-            let lockers = allFloors.get(currentSheet);
-            lockers.forEach((locker) => {
-                sheet.addRow({
-                    firstName: locker.getClient().getFirstName(),
-                    lastName: locker.getClient().getLastName(),
-                    studentNumber: locker.getClient().getStudentNumber(),
-                    phoneNumber: locker.getClient().getPhoneNumber(),
-                    emailAddress: locker.getClient().getEmailAddress(),
-                    lockerNumber: locker.getLockerNumber()
+        while (keys) {
+            let currentSheet = keys.next().value;
+            if (currentSheet) {
+                let sheet = workbook.getWorksheet(currentSheet);
+                sheet.columns = COLUMNS;
+                let lockers = allFloors.get(currentSheet);
+                lockers.forEach((locker) => {
+                    sheet.addRow({
+                        firstName: locker.getClient().getFirstName(),
+                        lastName: locker.getClient().getLastName(),
+                        studentNumber: locker.getClient().getStudentNumber(),
+                        phoneNumber: locker.getClient().getPhoneNumber(),
+                        emailAddress: locker.getClient().getEmailAddress(),
+                        lockerNumber: locker.getLockerNumber()
+                    });
                 });
-            });
-            currentSheet = keys.next().value;
+                currentSheet = keys.next().value;
+            }
+            else {
+                return;
+            }
         }
     }
     ;

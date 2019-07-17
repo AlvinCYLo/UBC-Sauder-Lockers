@@ -49,83 +49,98 @@ class LockerSystem {
         let floors = that.clients.keys();
         while (floors) {
             let currentFloor = floors.next().value;
-            let clientsByFloor = that.clients.get(currentFloor);
-            let lockersByFloor = that.availableLockers.get(currentFloor);
-            let lockersSize = lockersByFloor.length;
-            let clientSize = clientsByFloor.length;
-            if (clientSize > lockersSize) {
-                let excess = clientSize - lockersSize;
-                let carryOver = clientsByFloor.splice(clientsByFloor.length - 1 - excess, excess);
-                let target = this.carryOverTo(currentFloor);
-                let update = that.clients.get(target);
-                update.push(...carryOver);
-                that.clients.set(target, update);
-            }
-            clientsByFloor.sort(function (client1, client2) {
-                if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
-                    return -1;
+            if (currentFloor) {
+                let clientsByFloor = that.clients.get(currentFloor);
+                let lockersByFloor = that.availableLockers.get(currentFloor);
+                let lockersSize = lockersByFloor.length;
+                let clientSize = clientsByFloor.length;
+                if (clientSize > lockersSize) {
+                    let excess = clientSize - lockersSize;
+                    let carryOver = clientsByFloor.splice(clientsByFloor.length - 1 - excess, excess);
+                    let target = this.carryOverTo(currentFloor);
+                    let update = that.clients.get(target);
+                    update.push(...carryOver);
+                    that.clients.set(target, update);
                 }
-                else if (client1.getDateOfPurchase() > client2.getDateOfPurchase()) {
-                    return 1;
-                }
-                else {
-                    return 0;
-                }
-            });
-            let topLockers = [];
-            let bottomLockers = [];
-            let top = 0;
-            let bot = 0;
-            for (let i = 0; i < lockersByFloor.length; i++) {
-                if (lockersByFloor[i].top()) {
-                    topLockers.push(lockersByFloor[i]);
-                }
-                else {
-                    bottomLockers.push(lockersByFloor[i]);
-                }
-            }
-            clientsByFloor.forEach(function (client) {
-                if (top >= topLockers.length) {
-                    client.setLockerPreference("Bottom Locker");
-                }
-                else if (bot >= bottomLockers.length) {
-                    client.setLockerPreference("Top Locker");
-                }
-                if (client.getLockerPlacement() === "Top Locker") {
-                    client.setLocker(topLockers[top]);
-                    if (that.lockerAssignments.has(client)) {
-                        let lockers = that.lockerAssignments.get(client);
-                        lockers.push(topLockers[top]);
-                        that.lockerAssignments.set(client, lockers);
+                clientsByFloor.sort(function (client1, client2) {
+                    if (client1.getDateOfPurchase() < client2.getDateOfPurchase()) {
+                        return -1;
+                    }
+                    else if (client1.getDateOfPurchase() > client2.getDateOfPurchase()) {
+                        return 1;
                     }
                     else {
-                        that.lockerAssignments.set(client, [topLockers[top]]);
+                        return 0;
                     }
-                    top++;
-                }
-                else {
-                    client.setLocker(bottomLockers[bot]);
-                    if (that.lockerAssignments.has(client)) {
-                        let lockers = that.lockerAssignments.get(client);
-                        lockers.push(bottomLockers[bot]);
-                        that.lockerAssignments.set(client, lockers);
+                });
+                let topLockers = [];
+                let bottomLockers = [];
+                let top = 0;
+                let bot = 0;
+                for (let i = 0; i < lockersByFloor.length; i++) {
+                    if (lockersByFloor[i].top()) {
+                        topLockers.push(lockersByFloor[i]);
                     }
                     else {
-                        that.lockerAssignments.set(client, [bottomLockers[bot]]);
+                        bottomLockers.push(lockersByFloor[i]);
                     }
-                    bot++;
                 }
-            });
+                clientsByFloor.forEach(function (client) {
+                    if (top >= topLockers.length) {
+                        client.setLockerPreference("Bottom Locker");
+                    }
+                    else if (bot >= bottomLockers.length) {
+                        client.setLockerPreference("Top Locker");
+                    }
+                    if (client.getLockerPlacement() === "Top Locker") {
+                        client.setLocker(topLockers[top]);
+                        if (that.lockerAssignments.has(client)) {
+                            let lockers = that.lockerAssignments.get(client);
+                            lockers.push(topLockers[top]);
+                            that.lockerAssignments.set(client, lockers);
+                        }
+                        else {
+                            that.lockerAssignments.set(client, [topLockers[top]]);
+                        }
+                        top++;
+                    }
+                    else {
+                        client.setLocker(bottomLockers[bot]);
+                        if (that.lockerAssignments.has(client)) {
+                            let lockers = that.lockerAssignments.get(client);
+                            lockers.push(bottomLockers[bot]);
+                            that.lockerAssignments.set(client, lockers);
+                        }
+                        else {
+                            that.lockerAssignments.set(client, [bottomLockers[bot]]);
+                        }
+                        bot++;
+                    }
+                });
+            }
+            else {
+                return;
+            }
         }
     }
     publishAssignment() {
         return __awaiter(this, void 0, void 0, function* () {
             let date = new Date();
             const workbook = LockerSystem.excel.createAndLoadWorkbook(this.lockerAssignments);
-            yield LockerSystem.excel.publishLockerAssignments(date.getDate() + "/" + date.getMonth() + 1 + "/" + date.getFullYear() + " _Locker Assignments", workbook);
+            yield LockerSystem.excel.publishLockerAssignments(date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear() + " _Locker Assignments.xlsx", workbook);
         });
     }
 }
 LockerSystem.excel = new ExcelUtils_1.default();
 exports.default = LockerSystem;
+(function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        Util_1.default.info("Locker Assignment Starting");
+        const app = new LockerSystem();
+        yield app.getAvailableLockers("./test/data/Lockers.xlsx");
+        yield app.getAllClients("./test/data/Clients.xlsx");
+        app.makeAssignments();
+        app.publishAssignment();
+    });
+});
 //# sourceMappingURL=LockerSystem.js.map
