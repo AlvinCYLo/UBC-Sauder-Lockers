@@ -26,4 +26,4 @@ Locker System for the Commerce Undergraduate Society
 #### Next Steps 
 - Integrate with Showpass to automatically grab files
 - Create UI / Dashboard / Track statistics
-- Implement Restful APIs hosted on cus website so anyone within cus can use this tool
+- Implement Restful APIs hosted on cus website so anyone within CUS can use this tool
