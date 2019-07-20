@@ -47,10 +47,6 @@ export class Client {
         return this.lockerPlacement;
     }
 
-    public getLockers(): Locker[] {
-        return this.lockers;
-    }
-
     public getFirstName(): String {
         return this.firstName;
     }

@@ -126,21 +126,22 @@ class LockerSystem {
     publishAssignment() {
         return __awaiter(this, void 0, void 0, function* () {
             let date = new Date();
-            const workbook = LockerSystem.excel.createAndLoadWorkbook(this.lockerAssignments);
-            yield LockerSystem.excel.publishLockerAssignments(date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear() + " _Locker Assignments.xlsx", workbook);
+            let workbook = LockerSystem.excel.createAndLoadWorkbook(this.lockerAssignments);
+            yield LockerSystem.excel.publishLockerAssignments(date.getDate() + "-" + date.getMonth() + "-" + date.getFullYear() + "_Locker Assignments.xlsx", workbook);
         });
     }
 }
 LockerSystem.excel = new ExcelUtils_1.default();
 exports.default = LockerSystem;
-(function () {
+function start() {
     return __awaiter(this, void 0, void 0, function* () {
-        Util_1.default.info("Locker Assignment Starting");
+        console.log("Locker Assignment Starting");
         const app = new LockerSystem();
         yield app.getAvailableLockers("./test/data/Lockers.xlsx");
         yield app.getAllClients("./test/data/Clients.xlsx");
         app.makeAssignments();
         app.publishAssignment();
     });
-});
+}
+start();
 //# sourceMappingURL=LockerSystem.js.map

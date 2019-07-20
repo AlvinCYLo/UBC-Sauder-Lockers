@@ -187,7 +187,6 @@ export default class ExcelUtils {
                         lockerNumber: locker.getLockerNumber()
                     });
                 });
-                currentSheet = keys.next().value;
             } else {
                 return;
             }
@@ -196,14 +195,21 @@ export default class ExcelUtils {
 
     private formatWorkbook(workbook: any) {
         workbook.eachSheet((worksheet: any) => {
-            worksheet.getRow(1).eachCell((cell: any) => {
+            worksheet.getRow(1).eachCell(function (cell: any) {
                 cell.font = {bold: true};
-            })
-        })
+            });
+        });
     };
 
-    public async publishLockerAssignments(filename: string, workbook: any) {
-        await workbook.xlsx.writeFile(filename);
+    public publishLockerAssignments(filename: string, workbook: any) {
+        let total = 0;
+        workbook.eachSheet((worksheet: any) => {
+            total += worksheet.rowCount - 1;
+        });
+
+        workbook.xlsx.writeFile(filename).then(() => {
+            console.log(total + " Lockers Assigned");
+        });
     }
 
 }

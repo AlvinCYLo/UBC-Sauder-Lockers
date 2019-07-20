@@ -32,9 +32,6 @@ class Client {
     getLockerPlacement() {
         return this.lockerPlacement;
     }
-    getLockers() {
-        return this.lockers;
-    }
     getFirstName() {
         return this.firstName;
     }
