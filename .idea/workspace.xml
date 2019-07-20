@@ -80,7 +80,7 @@
     <session id="-1061511990">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.5" value="5" />
@@ -452,7 +452,7 @@
       <workItem from="1563248440843" duration="7379000" />
       <workItem from="1563257497008" duration="826000" />
       <workItem from="1563342654383" duration="3513000" />
-      <workItem from="1563598044477" duration="6407000" />
+      <workItem from="1563598044477" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="Assignment and Publishing of Locker Allocations">
       <created>1559522879105</created>
@@ -497,7 +497,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126691000" />
+    <option name="totallyTimeSpent" value="126794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
