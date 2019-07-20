@@ -6,7 +6,7 @@ Locker System for the Commerce Undergraduate Society
 ### Prerequisites:
 1. Please have [NodeJS](https://nodejs.org/en/) installed (the newer the better)
 2. *Optional* You can install [Yarn](https://yarnpkg.com/en/)
-3. Have a working terminal (cmd + space "terminal" for mac users // [git bash](https://git-scm.com/downloads) for windwos is preferred)
+3. Have a working terminal (cmd + space "terminal" for mac users // [git bash](https://git-scm.com/downloads) for windows is preferred)
 
 ### Project Set up:
 1. Clone the repo from GitHub "git clone ____"
