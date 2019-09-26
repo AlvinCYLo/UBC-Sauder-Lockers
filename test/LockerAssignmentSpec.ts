@@ -123,7 +123,8 @@ describe("Locker Assignments Read Excels", function () {
             await ls.getAvailableLockers("./test/data/Lockers.xlsx");
             await ls.getAllClients("./test/data/Clients.xlsx");
             ls.makeAssignments();
-            ls.publishAssignment();
+            await ls.publishAssignment();
+            ls.persistAssignments();
         } catch (err) {
             response = err;
         } finally {
