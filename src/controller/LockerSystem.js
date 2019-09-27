@@ -28,6 +28,7 @@ class LockerSystem {
                 that.availableLockers = yield LockerSystem.excel.extractLockerInfo(filepath);
                 that.currentLockerExcelFile = path.basename(filepath, '.xlsx');
             }
+            return path.basename(filepath);
         });
     }
     getAllClients(filepath) {
@@ -37,6 +38,7 @@ class LockerSystem {
                 that.clients = yield LockerSystem.excel.extractClientInfo(filepath);
                 that.currentClientExcelFile = path.basename(filepath, '.xlsx');
             }
+            return path.basename(filepath);
         });
     }
     carryOverTo(currentFloor) {
@@ -143,6 +145,50 @@ class LockerSystem {
     persistAssignments() {
         fs.writeFileSync(`${this.currentLockerExcelFile}-${this.currentClientExcelFile}.json`, JSON.stringify(this.lockerAssignments));
     }
+    currentDataset() {
+        return (`${this.currentLockerExcelFile} and ${this.currentClientExcelFile}`);
+    }
+    ;
+    removeLockerFile() {
+        this.availableLockers.clear();
+        this.currentLockerExcelFile = '';
+        return (`${new Date().toISOString()} Locker File ${this.currentLockerExcelFile} removed}`);
+    }
+    removeClientFile() {
+        this.clients.clear();
+        this.currentClientExcelFile = '';
+        return (`${new Date().toISOString()} Client File ${this.currentClientExcelFile} removed}`);
+    }
+    searchClientByLocker(lockerNumber) {
+        let floor;
+        let lockerString = lockerNumber.toString();
+        if (lockerString.length === 4) {
+            if (lockerString.startsWith("2")) {
+                floor = "Second Floor";
+            }
+            else if (lockerString.startsWith("3")) {
+                floor = "Third Floor";
+            }
+            else {
+                floor = "Fourth Floor";
+            }
+        }
+        else {
+            floor = "Basement";
+        }
+        let lockersOnFloor = this.availableLockers.get(floor);
+        let found = lockersOnFloor.find((locker) => {
+            return locker.getLockerNumber() === lockerNumber;
+        });
+        return found.getClient();
+    }
+    ;
+    searchLockerByStudentNumber(studentNumber) {
+    }
+    ;
+    searchLockerByClientName(studentName) {
+    }
+    ;
 }
 LockerSystem.excel = new ExcelUtils_1.default();
 exports.default = LockerSystem;

@@ -29,6 +29,7 @@ export default class LockerSystem {
             that.availableLockers = await LockerSystem.excel.extractLockerInfo(filepath);
             that.currentLockerExcelFile = path.basename(filepath, '.xlsx');
         }
+        return path.basename(filepath);
     }
 
     public async getAllClients(filepath: string) {
@@ -37,6 +38,7 @@ export default class LockerSystem {
             that.clients = await LockerSystem.excel.extractClientInfo(filepath);
             that.currentClientExcelFile = path.basename(filepath, '.xlsx');
         }
+        return path.basename(filepath);
     }
 
     private carryOverTo(currentFloor: string) {
@@ -143,6 +145,55 @@ export default class LockerSystem {
     public persistAssignments() {
         fs.writeFileSync(`${this.currentLockerExcelFile}-${this.currentClientExcelFile}.json`, JSON.stringify(this.lockerAssignments));
     }
+
+    public currentDataset(){
+        return (`${this.currentLockerExcelFile} and ${this.currentClientExcelFile}`);
+    };
+
+    public removeLockerFile(){
+        this.availableLockers.clear();
+        this.currentLockerExcelFile = '';
+        return (`${new Date().toISOString()} Locker File ${this.currentLockerExcelFile} removed}`);
+    }
+
+    public removeClientFile(){
+        this.clients.clear();
+        this.currentClientExcelFile = '';
+        return (`${new Date().toISOString()} Client File ${this.currentClientExcelFile} removed}`);
+    }
+
+    public searchClientByLocker(lockerNumber: number){
+        let floor;
+        let lockerString = lockerNumber.toString();
+
+        if (lockerString.length === 4) {
+            if (lockerString.startsWith("2")) {
+                floor = "Second Floor";
+            } else if (lockerString.startsWith("3")) {
+                floor = "Third Floor";
+            } else {
+                floor = "Fourth Floor";
+            }
+        } else {
+            floor = "Basement";
+        }
+
+        let lockersOnFloor = this.availableLockers.get(floor);
+        let found = lockersOnFloor.find((locker) => {
+            return locker.getLockerNumber() === lockerNumber;
+        });
+
+        return found.getClient();
+
+    };
+
+    public searchLockerByStudentNumber(studentNumber: number){
+
+    };
+
+    public searchLockerByClientName(studentName: string){
+
+    };
 }
 
 async function start() {
