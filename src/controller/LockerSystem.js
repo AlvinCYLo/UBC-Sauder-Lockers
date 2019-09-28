@@ -192,16 +192,4 @@ class LockerSystem {
 }
 LockerSystem.excel = new ExcelUtils_1.default();
 exports.default = LockerSystem;
-function start() {
-    return __awaiter(this, void 0, void 0, function* () {
-        console.log("Locker Assignment Starting");
-        const app = new LockerSystem();
-        yield app.getAvailableLockers("./test/data/Lockers.xlsx");
-        yield app.getAllClients("./test/data/Clients.xlsx");
-        app.makeAssignments();
-        yield app.publishAssignment();
-        app.persistAssignments();
-    });
-}
-start();
 //# sourceMappingURL=LockerSystem.js.map

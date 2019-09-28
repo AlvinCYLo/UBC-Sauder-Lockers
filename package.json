@@ -5,7 +5,8 @@
   "main": "App.ts",
   "scripts": {
     "test": "mocha",
-    "start": "node src/controller/LockerSystem.js"
+    "start": "node src/controller/LockerSystem.js",
+    "start-server": "node src/server.js"
   },
   "repository": {
     "type": "git",

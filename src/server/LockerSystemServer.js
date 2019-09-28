@@ -19,11 +19,11 @@ class LockerSystemServer {
             try {
                 let lockersExcel = req.params.body;
                 let added = yield this.ls.getAvailableLockers(lockersExcel);
-                res.json(200, `Locker File ${added} was added`);
+                res.status(200).json({ added: added });
                 return next();
             }
             catch (error) {
-                res.json(400, { error: error });
+                res.status(400).json({ error: error });
                 return next();
             }
         });
@@ -34,11 +34,11 @@ class LockerSystemServer {
             try {
                 let clientExcel = req.params.body;
                 let added = yield this.ls.getAllClients(clientExcel);
-                res.json(200, `Client File ${added} was added`);
+                res.status(200).json({ added: added });
                 return next();
             }
             catch (error) {
-                res.json(400, { error: error });
+                res.status(400).json({ error: error });
                 return next();
             }
         });
@@ -47,42 +47,28 @@ class LockerSystemServer {
     removeLockerFile(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             let removed = this.ls.removeLockerFile();
-            res.json(200, { removed: removed });
+            res.status(200).json({ removed: removed });
         });
     }
     removeClientFile(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             let removed = this.ls.removeClientFile();
-            res.json(200, { removed: removed });
+            res.status(200).json({ removed: removed });
         });
     }
     ;
-    searchLockerByClient(req, res, next) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                let client = req.params.body;
-            }
-            catch (error) {
-            }
-        });
+    currentDataset(res) {
+        let current = this.ls.currentDataset();
+        res.status(200).json(current);
     }
-    ;
-    searchClientByLocker(req, res, next) {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                let locker = req.params.body;
-            }
-            catch (error) {
-            }
-        });
-    }
-    ;
     makeLockerAssignments(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             this.ls.makeAssignments();
+            let dataset = this.ls.currentDataset();
+            res.json(200, { assigned: dataset });
         });
     }
     ;
 }
-exports.default = LockerSystemServer;
+module.exports = LockerSystemServer;
 //# sourceMappingURL=LockerSystemServer.js.map
