@@ -162,11 +162,11 @@ export default class LockerSystem {
         return (`${new Date().toISOString()} Client File ${this.currentClientExcelFile} removed}`);
     }
 
-    public searchClientByLocker(lockerNumber: number) {
+    public searchClientByLocker(lockerNumber: string) {
         let floor = this.getFloorFromLockerNumber(lockerNumber);
         let lockersOnFloor = this.availableLockers.get(floor);
         let found = lockersOnFloor.find((locker) => {
-            return locker.getLockerNumber() === lockerNumber;
+            return locker.getLockerNumber().toString() === lockerNumber;
         });
         return found.getClient();
     };
@@ -184,7 +184,7 @@ export default class LockerSystem {
         }
     };
 
-    public getFloorFromLockerNumber(lockerNumber: number) {
+    public getFloorFromLockerNumber(lockerNumber: string) {
         let lockerString = lockerNumber.toString();
 
         if (lockerString.length === 4) {
