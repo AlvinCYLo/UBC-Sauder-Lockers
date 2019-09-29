@@ -5,7 +5,7 @@
   "main": "App.ts",
   "scripts": {
     "test": "mocha",
-    "start": "node src/controller/LockerSystem.js",
+    "start": "node src/App.js",
     "start-server": "node src/server.js"
   },
   "repository": {
@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/AlvinCYLo/cuslockers#readme",
   "dependencies": {
-    "exceljs": "^1.8.0",
-    "express": "^4.17.1"
+    "exceljs": "^1.8.0"
   },
   "devDependencies": {
     "@types/chai": "4.0.8",

@@ -6,7 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f683a90e-b950-4fdb-986f-c9fec53c57db" name="Default Changelist" comment="Assignment and Publishing of Locker Allocations">
+      <change afterPath="$PROJECT_DIR$/src/App.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lockers-.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/LockerSystem.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LockerSystem.js.map" afterDir="false" />
@@ -17,6 +19,9 @@
       <change beforePath="$PROJECT_DIR$/src/server/LockerSystemServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/LockerSystemServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/LockerSystemServer.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/LockerSystemServer.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/LockerSystemServer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/LockerSystemServer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LockerAssignmentSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/LockerAssignmentSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LockerAssignmentSpec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/test/LockerAssignmentSpec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LockerAssignmentSpec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/LockerAssignmentSpec.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,7 +36,7 @@
     <SUITE FILE_PATH="coverage/cuslockers$Locker_Assignments_Read_Excels_Locker_System_Clients.dat" NAME="Locker Assignments Read Excels.Locker System Clients Coverage Results" MODIFIED="1554671345203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/cuslockers$Locker_Assignments_Read_Excels_Locker_System_Assignment.dat" NAME="Locker Assignments Read Excels.Locker System Assignment Coverage Results" MODIFIED="1557595274151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/cuslockers$Prelim_Tests.dat" NAME="Prelim Tests Coverage Results" MODIFIED="1554065940602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/cuslockers$Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish.dat" NAME="Locker Assignments Read Excels.Locker System Assignment and Publish Coverage Results" MODIFIED="1563345638334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/cuslockers$Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish.dat" NAME="Locker Assignments Read Excels.Locker System Assignment and Publish Coverage Results" MODIFIED="1569736219899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="MochaJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="504759613">
@@ -81,50 +86,50 @@
     <session id="-1061511990">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="28" />
+          <entry key="project.closed" value="32" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="3" />
+          <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="7" />
-          <entry key="project.open.time.7" value="7" />
+          <entry key="project.open.time.7" value="9" />
           <entry key="project.open.time.8" value="3" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="29" />
+          <entry key="TypeScriptServerServiceImpl" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="51" />
-          <entry key="json" value="90" />
-          <entry key="ts" value="11243" />
+          <entry key="js" value="55" />
+          <entry key="json" value="100" />
+          <entry key="ts" value="14317" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="90" />
-          <entry key="JavaScript" value="51" />
-          <entry key="TypeScript" value="11243" />
+          <entry key="JSON" value="100" />
+          <entry key="JavaScript" value="55" />
+          <entry key="TypeScript" value="14317" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="json" value="13" />
+          <entry key="json" value="16" />
           <entry key="md" value="1" />
-          <entry key="ts" value="48" />
+          <entry key="ts" value="58" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="11" />
+          <entry key="JSON" value="14" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="TypeScript" value="48" />
+          <entry key="TypeScript" value="58" />
           <entry key="tsconfig" value="2" />
         </counts>
       </usages-collector>
@@ -132,11 +137,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="173" column="20" lean-forward="true" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
+            <state relative-caret-position="260">
+              <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -145,19 +150,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server.ts">
+        <entry file="file://$PROJECT_DIR$/src/App.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            <state relative-caret-position="204">
+              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/LockerSystemServer.ts">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+            <state relative-caret-position="274">
+              <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -181,12 +186,20 @@
       <find>setclient</find>
       <find>set</find>
       <find>read</find>
-      <find>while</find>
       <find>xls</find>
       <find>assignments</find>
       <find>express</find>
       <find>currentdata</find>
+      <find>res.status</find>
+      <find>).json(</find>
+      <find>keys</find>
+      <find>while</find>
+      <find>tolower</find>
     </findStrings>
+    <replaceStrings>
+      <replace>res.json</replace>
+      <replace>,</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Bon\Desktop\cuslockers\src\controller</dir>
       <dir>C:\Users\Bon\Desktop\cuslockers\src</dir>
@@ -205,14 +218,14 @@
         <option value="$PROJECT_DIR$/App.ts" />
         <option value="$PROJECT_DIR$/src/controller/Client.ts" />
         <option value="$PROJECT_DIR$/src/controller/ExcelUtils.ts" />
-        <option value="$PROJECT_DIR$/test/LockerAssignmentSpec.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/server/LockerServer.ts" />
         <option value="$PROJECT_DIR$/src/App.ts" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/test/LockerAssignmentSpec.ts" />
         <option value="$PROJECT_DIR$/src/controller/LockerSystem.ts" />
-        <option value="$PROJECT_DIR$/src/server.ts" />
         <option value="$PROJECT_DIR$/src/server/LockerSystemServer.ts" />
+        <option value="$PROJECT_DIR$/src/server.ts" />
       </list>
     </option>
   </component>
@@ -233,9 +246,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -261,13 +275,12 @@
               <item name="cuslockers" type="b2602c69:ProjectViewProjectNode" />
               <item name="cuslockers" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cuslockers" type="b2602c69:ProjectViewProjectNode" />
               <item name="cuslockers" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -303,7 +316,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start-srver">
+  <component name="RunManager" selected="Mocha.Locker Assignments Read Excels.Locker System Assignment and Publish">
     <configuration name="start-srver" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -319,6 +332,16 @@
       <command value="run" />
       <scripts>
         <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -350,20 +373,6 @@
       <test-file>$PROJECT_DIR$/test/LockerAssignmentSpec.ts</test-file>
       <method v="2" />
     </configuration>
-    <configuration name="Prelim" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options>--require ts-node/register</extra-mocha-options>
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/LockerAssignmentSpec.ts</test-file>
-      <test-names>
-        <name value="lockers" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="test\LockerAssignmentSpec.ts" type="mocha-javascript-test-runner" factoryName="Mocha" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -377,19 +386,19 @@
     </configuration>
     <list>
       <item itemvalue="Mocha.Prelim Tests" />
-      <item itemvalue="Mocha.Prelim" />
       <item itemvalue="Mocha.test\LockerAssignmentSpec.ts" />
       <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Assignment and Publish" />
       <item itemvalue="npm.start" />
       <item itemvalue="npm.start-srver" />
+      <item itemvalue="npm.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start-srver" />
         <item itemvalue="Mocha.Locker Assignments Read Excels.Locker System Assignment and Publish" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.start-srver" />
         <item itemvalue="Mocha.test\LockerAssignmentSpec.ts" />
-        <item itemvalue="Mocha.Prelim" />
       </list>
     </recent_temporary>
   </component>
@@ -439,6 +448,10 @@
       <workItem from="1569472697221" duration="5978000" />
       <workItem from="1569548693548" duration="13188000" />
       <workItem from="1569638022858" duration="10303000" />
+      <workItem from="1569692332426" duration="2594000" />
+      <workItem from="1569697315248" duration="823000" />
+      <workItem from="1569701334891" duration="4167000" />
+      <workItem from="1569714097241" duration="13784000" />
     </task>
     <task id="LOCAL-00001" summary="Assignment and Publishing of Locker Allocations">
       <created>1559522879105</created>
@@ -451,52 +464,52 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.07.19 at 23h 28m 02s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 35m 47s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.25 at 22h 06m 02s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 45m 05s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.25 at 23h 05m 06s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 45m 30s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 18h 55m 54s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 46m 25s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 20h 08m 01s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 47m 15s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 21h 32m 31s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 50m 19s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 21h 37m 10s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 51m 05s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 22h 00m 40s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 53m 19s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 22h 13m 59s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 53m 36s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
-    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.26 at 22h 17m 42s.xml">
+    <history-entry file="Locker_Assignments_Read_Excels_Locker_System_Assignment_and_Publish - 2019.09.28 at 22h 55m 40s.xml">
       <configuration name="Locker Assignments Read Excels.Locker System Assignment and Publish" configurationId="mocha-javascript-test-runner" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156263000" />
+    <option name="totallyTimeSpent" value="177631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12065332" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12012645" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3253796" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3470716" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.318872" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35032538" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -551,6 +564,8 @@
         <option value="$PROJECT_DIR$/src/controller/Client.js" />
         <option value="$PROJECT_DIR$/src/controller/LockerSystem.js" />
         <option value="$PROJECT_DIR$/test/TestUtil.js.map" />
+        <option value="$PROJECT_DIR$/src/App.js.map" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -565,30 +580,31 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts</url>
-          <line>125</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/ExcelUtils.ts</url>
           <line>204</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/controller/LockerSystem.ts</url>
-          <line>145</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/controller/LockerSystem.ts</url>
           <line>139</line>
           <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts</url>
+          <line>124</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>a</expression-string>
+        <language-id>TypeScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>worksheet.getRow(1)</expression-string>
         <language-id>TypeScript</language-id>
@@ -626,11 +642,6 @@
       </expression>
       <expression>
         <expression-string>floors[2]</expression-string>
-        <language-id>TypeScript</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>floors[0]</expression-string>
         <language-id>TypeScript</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -694,16 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="118" selection-start-line="118" selection-end-line="118" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -721,38 +722,60 @@
     <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.ts" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lockers-.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server.ts">
+    <entry file="file://$PROJECT_DIR$/Lockers-Clients.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="120">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/LockerAssignmentSpec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="124" column="12" selection-start-line="124" selection-start-column="12" selection-end-line="124" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/LockerSystemServer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        <state relative-caret-position="1975">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/LockerSystem.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="173" column="20" lean-forward="true" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="20" />
+        <state relative-caret-position="260">
+          <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
         </state>
       </provider>
     </entry>

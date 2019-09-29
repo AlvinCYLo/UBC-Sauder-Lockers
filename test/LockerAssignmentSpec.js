@@ -127,8 +127,7 @@ describe("Locker Assignments Read Excels", function () {
             yield ls.getAvailableLockers("./test/data/Lockers.xlsx");
             yield ls.getAllClients("./test/data/Clients.xlsx");
             ls.makeAssignments();
-            yield ls.publishAssignment();
-            ls.persistAssignments();
+            let a = ls.searchLockerByStudentNumber('69759074');
         }
         catch (err) {
             response = err;

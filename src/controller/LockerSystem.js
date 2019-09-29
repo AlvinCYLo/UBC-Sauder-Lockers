@@ -160,22 +160,7 @@ class LockerSystem {
         return (`${new Date().toISOString()} Client File ${this.currentClientExcelFile} removed}`);
     }
     searchClientByLocker(lockerNumber) {
-        let floor;
-        let lockerString = lockerNumber.toString();
-        if (lockerString.length === 4) {
-            if (lockerString.startsWith("2")) {
-                floor = "Second Floor";
-            }
-            else if (lockerString.startsWith("3")) {
-                floor = "Third Floor";
-            }
-            else {
-                floor = "Fourth Floor";
-            }
-        }
-        else {
-            floor = "Basement";
-        }
+        let floor = this.getFloorFromLockerNumber(lockerNumber);
         let lockersOnFloor = this.availableLockers.get(floor);
         let found = lockersOnFloor.find((locker) => {
             return locker.getLockerNumber() === lockerNumber;
@@ -184,11 +169,35 @@ class LockerSystem {
     }
     ;
     searchLockerByStudentNumber(studentNumber) {
+        let keys = this.clients.keys();
+        while (keys) {
+            let clientsOnFloor = this.clients.get(keys.next().value);
+            let found = clientsOnFloor.find((client) => {
+                return client.getStudentNumber().toString() === studentNumber;
+            });
+            if (found) {
+                return found;
+            }
+        }
     }
     ;
-    searchLockerByClientName(studentName) {
+    getFloorFromLockerNumber(lockerNumber) {
+        let lockerString = lockerNumber.toString();
+        if (lockerString.length === 4) {
+            if (lockerString.startsWith("2")) {
+                return "Second Floor";
+            }
+            else if (lockerString.startsWith("3")) {
+                return "Third Floor";
+            }
+            else {
+                return "Fourth Floor";
+            }
+        }
+        else {
+            return "Basement";
+        }
     }
-    ;
 }
 LockerSystem.excel = new ExcelUtils_1.default();
 exports.default = LockerSystem;

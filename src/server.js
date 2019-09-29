@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -7,26 +6,42 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const express = require('express');
-const app = express();
+const restify = require('restify');
+let server = restify.createServer({ name: 'cusLockers' });
 const port = 3000;
 const LockerSystemServer = require('./server/LockerSystemServer');
 const lss = new LockerSystemServer();
-app.put('/lockers', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
-    yield lss.addLockerFile(req, res, next);
+server.put('/add/:lockersOrClient', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    if (req.params.lockersOrClients.toLowerCase() === 'lockers') {
+        lss.addLockerFile(req, res, next);
+    }
+    else {
+        lss.addClientFile(req, res, next);
+    }
 }));
-app.put('/clients', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
-    yield lss.addClientFile(req, res, next);
+server.del('/delete/:lockersOrClients', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    if (req.params.lockersOrClients.toLowerCase() === 'lockers') {
+        lss.removeLockerFile(req, res, next);
+    }
+    else {
+        lss.removeClientFile(req, res, next);
+    }
 }));
-app.delete('/delete:lockersOrClients', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
-}));
-app.post('/search:studentNumber', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
-}));
-app.get('/data', (req, res) => {
-    res.send(lss.currentDataset(res));
+server.get('/data', (req, res, next) => {
+    lss.currentDataset(req, res, next);
 });
-app.listen(port, () => {
+server.get('/assignment', (req, res, next) => {
+    lss.makeLockerAssignments(req, res, next);
+});
+server.post('/search/:lockerOrStudentNumber', (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+    if (req.params.lockerOrStudentNumber.toLowerCase() === 'lockerNumber') {
+        lss.searchClientByLocker(req, res, next);
+    }
+    else {
+        lss.searchLockerByClient(req, res, next);
+    }
+}));
+server.listen(port, () => {
     console.log(`Locker system listening on port ${port}`);
 });
 //# sourceMappingURL=server.js.map

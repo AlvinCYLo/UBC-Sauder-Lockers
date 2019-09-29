@@ -146,64 +146,58 @@ export default class LockerSystem {
         fs.writeFileSync(`${this.currentLockerExcelFile}-${this.currentClientExcelFile}.json`, JSON.stringify(this.lockerAssignments));
     }
 
-    public currentDataset(){
+    public currentDataset() {
         return (`${this.currentLockerExcelFile} and ${this.currentClientExcelFile}`);
     };
 
-    public removeLockerFile(){
+    public removeLockerFile() {
         this.availableLockers.clear();
         this.currentLockerExcelFile = '';
         return (`${new Date().toISOString()} Locker File ${this.currentLockerExcelFile} removed}`);
     }
 
-    public removeClientFile(){
+    public removeClientFile() {
         this.clients.clear();
         this.currentClientExcelFile = '';
         return (`${new Date().toISOString()} Client File ${this.currentClientExcelFile} removed}`);
     }
 
-    public searchClientByLocker(lockerNumber: number){
-        let floor;
-        let lockerString = lockerNumber.toString();
-
-        if (lockerString.length === 4) {
-            if (lockerString.startsWith("2")) {
-                floor = "Second Floor";
-            } else if (lockerString.startsWith("3")) {
-                floor = "Third Floor";
-            } else {
-                floor = "Fourth Floor";
-            }
-        } else {
-            floor = "Basement";
-        }
-
+    public searchClientByLocker(lockerNumber: number) {
+        let floor = this.getFloorFromLockerNumber(lockerNumber);
         let lockersOnFloor = this.availableLockers.get(floor);
         let found = lockersOnFloor.find((locker) => {
             return locker.getLockerNumber() === lockerNumber;
         });
-
         return found.getClient();
-
     };
 
-    public searchLockerByStudentNumber(studentNumber: number){
-
+    public searchLockerByStudentNumber(studentNumber: string) {
+        let keys = this.clients.keys();
+        while(keys){
+            let clientsOnFloor = this.clients.get(keys.next().value);
+            let found = clientsOnFloor.find((client) => {
+                return client.getStudentNumber().toString() === studentNumber;
+            });
+            if (found) {
+                return found;
+            }
+        }
     };
 
-    public searchLockerByClientName(studentName: string){
+    public getFloorFromLockerNumber(lockerNumber: number) {
+        let lockerString = lockerNumber.toString();
 
-    };
+        if (lockerString.length === 4) {
+            if (lockerString.startsWith("2")) {
+                return "Second Floor";
+            } else if (lockerString.startsWith("3")) {
+                return "Third Floor";
+            } else {
+                return "Fourth Floor";
+            }
+        } else {
+            return "Basement";
+        }
+    }
+
 }
-//
-// async function start() {
-//     console.log("Locker Assignment Starting");
-//     const app = new LockerSystem();
-//     await app.getAvailableLockers("./test/data/Lockers.xlsx");
-//     await app.getAllClients("./test/data/Clients.xlsx");
-//     app.makeAssignments();
-//     await app.publishAssignment();
-//     app.persistAssignments();
-// }
-//
-// start();

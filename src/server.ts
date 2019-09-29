@@ -1,35 +1,42 @@
-const express = require('express');
-// @ts-ignore
-import { Request, Response, NextFunction } from "express";
-
-const app = express();
+const restify = require('restify');
+let server = restify.createServer({name: 'cusLockers'});
 const port = 3000;
 
 const LockerSystemServer = require('./server/LockerSystemServer');
 const lss = new LockerSystemServer();
 
-app.put('/lockers', async (req: Request, res: Response, next: NextFunction) => {
-    await lss.addLockerFile(req, res, next);
+server.put('/add/:lockersOrClient', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
+    if (req.params.lockersOrClients.toLowerCase() === 'lockers') {
+        lss.addLockerFile(req, res, next);
+    } else {
+        lss.addClientFile(req, res, next);
+    }
 });
 
-app.put('/clients', async (req: Request, res: Response, next: NextFunction) => {
-    await lss.addClientFile(req, res, next);
+server.del('/delete/:lockersOrClients', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
+    if (req.params.lockersOrClients.toLowerCase() === 'lockers') {
+        lss.removeLockerFile(req, res, next);
+    } else {
+        lss.removeClientFile(req, res, next);
+    }
 });
 
-app.delete('/delete:lockersOrClients', async (req: Request, res: Response, next: NextFunction) => {
-
+server.get('/data', (req: restify.Request, res: restify.Response, next: restify.Next) => {
+    lss.currentDataset(req, res, next);
 });
 
-app.post('/search:studentNumber', async (req: Request, res: Response, next: NextFunction) => {
-
+server.get('/assignment', (req: restify.Request, res: restify.Response, next: restify.Next) => {
+    lss.makeLockerAssignments(req, res, next);
 });
 
-app.get('/data', (req: Request, res: Response) => {
-    res.send(lss.currentDataset(res));
+server.post('/search/:lockerOrStudentNumber', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
+    if (req.params.lockerOrStudentNumber.toLowerCase() === 'lockerNumber') {
+        lss.searchClientByLocker(req, res, next);
+    } else {
+        lss.searchLockerByClient(req, res, next);
+    }
 });
 
-
-
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Locker system listening on port ${port}`);
 });
